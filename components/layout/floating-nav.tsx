@@ -4,6 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navItems } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function FloatingNav() {
   const pathname = usePathname();
@@ -19,20 +24,31 @@ export function FloatingNav() {
             href === "/" ? pathname === "/" : pathname.startsWith(href);
           return (
             <li key={href}>
-              <Link
-                href={href}
-                aria-label={label}
-                aria-current={isActive ? "page" : undefined}
-                className={cn(
-                  "flex h-10 w-10 items-center justify-center rounded-xl transition-all",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
-                  isActive
-                    ? "bg-accent text-white"
-                    : "text-text-secondary hover:bg-bg-card-hover hover:text-text-primary",
-                )}
-              >
-                <Icon className="h-4 w-4" />
-              </Link>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={href}
+                    aria-label={label}
+                    aria-current={isActive ? "page" : undefined}
+                    className={cn(
+                      "flex h-10 w-10 items-center justify-center rounded-xl transition-all",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+                      isActive
+                        ? "bg-accent text-white"
+                        : "text-text-secondary hover:bg-bg-card-hover hover:text-text-primary",
+                    )}
+                  >
+                    <Icon className="h-4 w-4" />
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent
+                  side="bottom"
+                  sideOffset={8}
+                  className="bg-bg-card-hover text-text-primary border border-border-subtle font-poppins"
+                >
+                  {label}
+                </TooltipContent>
+              </Tooltip>
             </li>
           );
         })}
