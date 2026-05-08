@@ -4,6 +4,8 @@ import { FloatingNav } from "@/components/layout/floating-nav";
 import { Footer } from "@/components/layout/footer";
 import { FAQ } from "@/components/sections/faq";
 import { CollaborateCTA } from "@/components/sections/collaborate-cta";
+import { PageTransition } from "@/components/motion/page-transition";
+import { MobileProfile } from "@/components/layout/mobile-profile";
 
 export function PageShell({ children }: { children: ReactNode }) {
   return (
@@ -21,7 +23,8 @@ export function PageShell({ children }: { children: ReactNode }) {
         <div className="flex gap-10 lg:gap-20">
           <Sidebar />
           <main id="main" className="min-w-0 flex-1 max-w-content">
-            {children}
+            <MobileProfile />
+            <PageTransition>{children}</PageTransition>
             <FAQ />
             <CollaborateCTA />
           </main>
