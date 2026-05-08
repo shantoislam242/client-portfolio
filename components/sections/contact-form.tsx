@@ -24,7 +24,7 @@ export function ContactForm() {
   return (
     <section className="pt-4 pb-16">
       <FadeIn>
-        <h1 className="font-outfit font-bold text-5xl md:text-6xl leading-[1.05] text-text-primary">
+        <h1 className="font-outfit font-bold text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-text-primary">
           {contactPage.headingPrefix}{" "}
           <span className="text-accent">{contactPage.headingAccent}</span>
         </h1>

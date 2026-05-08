@@ -1,18 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { profile } from "@/lib/data";
+import { profile, hero } from "@/lib/data";
 
 export function Sidebar() {
   return (
-    <aside className="hidden lg:block w-[280px] shrink-0">
-      <div className="sticky top-24">
+    <aside className="w-full lg:w-[280px] shrink-0">
+      <div className="lg:sticky lg:top-24">
         <div className="rounded-3xl bg-bg-card border border-border-subtle p-5">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-bg-card-hover">
             <Image
               src={profile.portrait}
               alt={`Portrait of ${profile.name}`}
               fill
-              sizes="240px"
+              sizes="(min-width: 1024px) 240px, 100vw"
               className="object-cover"
               priority
             />
@@ -40,6 +40,14 @@ export function Sidebar() {
               </Link>
             ))}
           </div>
+
+          {/* Mobile-only Let's Talk CTA — desktop hero already has it */}
+          <Link
+            href={hero.primaryCta.href}
+            className="mt-5 lg:hidden flex items-center justify-center rounded-xl bg-accent px-5 py-2.5 font-poppins text-sm font-medium text-white transition-all hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-card"
+          >
+            {hero.primaryCta.label}
+          </Link>
         </div>
       </div>
     </aside>

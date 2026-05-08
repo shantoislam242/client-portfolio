@@ -16,7 +16,7 @@ export default function Error({
 
   return (
     <section className="py-24 text-center">
-      <h1 className="font-outfit font-bold text-5xl md:text-6xl text-text-primary">
+      <h1 className="font-outfit font-bold text-4xl sm:text-5xl md:text-6xl text-text-primary">
         Something <span className="text-accent">went wrong</span>
       </h1>
       <p className="mt-4 font-poppins text-text-secondary">

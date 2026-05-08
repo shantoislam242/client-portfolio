@@ -5,7 +5,6 @@ import { Footer } from "@/components/layout/footer";
 import { FAQ } from "@/components/sections/faq";
 import { CollaborateCTA } from "@/components/sections/collaborate-cta";
 import { PageTransition } from "@/components/motion/page-transition";
-import { MobileProfile } from "@/components/layout/mobile-profile";
 
 export function PageShell({ children }: { children: ReactNode }) {
   return (
@@ -19,11 +18,10 @@ export function PageShell({ children }: { children: ReactNode }) {
 
       <FloatingNav />
 
-      <div className="mx-auto max-w-shell px-6 md:px-10 pt-28 md:pt-32">
-        <div className="flex gap-10 lg:gap-20">
+      <div className="mx-auto max-w-shell px-4 sm:px-6 md:px-10 pt-24 md:pt-32">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-20">
           <Sidebar />
-          <main id="main" className="min-w-0 flex-1 max-w-content">
-            <MobileProfile />
+          <main id="main" className="min-w-0 flex-1 lg:max-w-content">
             <PageTransition>{children}</PageTransition>
             <FAQ />
             <CollaborateCTA />
