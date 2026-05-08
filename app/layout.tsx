@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Poppins, Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import { PageShell } from "@/components/layout/page-shell";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -42,7 +43,7 @@ export default function RootLayout({
       className={`${outfit.variable} ${poppins.variable} ${inter.variable}`}
     >
       <body className="font-poppins bg-bg-primary text-text-primary antialiased">
-        {children}
+        <PageShell>{children}</PageShell>
         <Toaster theme="dark" position="bottom-center" />
       </body>
     </html>
