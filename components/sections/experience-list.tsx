@@ -27,7 +27,10 @@ export function ExperienceList() {
               <h3 className="font-outfit font-bold text-xl text-text-primary pr-12">
                 {entry.company}
               </h3>
-              <p className="mt-2 font-poppins text-sm text-text-secondary max-w-md">
+              <p className="mt-1 font-inter text-xs uppercase tracking-wider text-text-secondary">
+                {entry.role}
+              </p>
+              <p className="mt-3 font-poppins text-sm text-text-secondary max-w-md">
                 {entry.description}
               </p>
               <p className="mt-4 font-inter text-xs text-text-muted">

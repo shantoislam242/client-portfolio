@@ -47,8 +47,13 @@ export function Testimonials() {
                 className="object-cover"
               />
             </div>
-            <div className="font-outfit font-bold text-base text-text-primary">
-              {t.name}
+            <div>
+              <div className="font-outfit font-bold text-base text-text-primary">
+                {t.name}
+              </div>
+              <div className="font-poppins text-xs text-text-muted">
+                {t.role}
+              </div>
             </div>
           </header>
           <blockquote className="mt-4 font-poppins text-sm text-text-secondary">

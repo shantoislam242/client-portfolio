@@ -59,7 +59,7 @@ export function MobileProfile() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="text-text-secondary hover:text-accent"
+                  className="rounded-md p-1 text-text-secondary transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   <Icon className="h-4 w-4" />
                 </Link>

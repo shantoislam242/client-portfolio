@@ -80,7 +80,7 @@ export function ContactForm() {
               id="contact-message"
               name="message"
               required
-              rows={5}
+              rows={4}
               placeholder="Your Message"
               className="bg-bg-card-hover border-border-subtle resize-none"
             />
