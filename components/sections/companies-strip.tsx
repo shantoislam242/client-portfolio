@@ -1,5 +1,8 @@
 import { companies } from "@/lib/data";
 import { FadeIn } from "@/components/motion/fade-in";
+import { LogoipsumLogo } from "@/components/icons/logoipsum";
+
+const variants = [1, 2, 3] as const;
 
 export function CompaniesStrip() {
   return (
@@ -7,12 +10,12 @@ export function CompaniesStrip() {
       <p className="text-center font-inter text-xs uppercase tracking-wider text-text-secondary">
         {companies.caption}
       </p>
-      <div className="mt-6 flex items-center justify-center gap-10 opacity-60">
-        {companies.logos.map((slug) => (
-          <div
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-70">
+        {companies.logos.map((slug, i) => (
+          <LogoipsumLogo
             key={slug}
-            className="h-7 w-28 rounded bg-bg-card-hover"
-            aria-hidden="true"
+            variant={variants[i % 3]}
+            className="h-7 w-auto text-text-primary"
           />
         ))}
       </div>

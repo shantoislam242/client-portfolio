@@ -24,7 +24,7 @@ export function Hero() {
         <div className="mt-10 grid grid-cols-3 gap-6">
           {stats.map((s) => (
             <div key={s.label}>
-              <div className="font-outfit font-thin text-4xl sm:text-5xl md:text-6xl text-text-primary leading-none">
+              <div className="font-outfit font-bold text-4xl sm:text-5xl md:text-6xl text-text-primary leading-none">
                 <CountUp to={s.value} prefix={s.prefix} />
               </div>
               <div className="mt-3 font-inter text-xs uppercase tracking-wider text-text-secondary">
