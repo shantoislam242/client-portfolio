@@ -4,7 +4,7 @@ import { profile, hero } from "@/lib/data";
 
 export function Sidebar() {
   return (
-    <aside className="w-full lg:w-[280px] shrink-0">
+    <aside className="w-full lg:w-[320px] shrink-0">
       <div className="lg:sticky lg:top-24">
         <div className="rounded-3xl bg-bg-card border border-border-subtle p-5">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-bg-card-hover">
@@ -12,7 +12,7 @@ export function Sidebar() {
               src={profile.portrait}
               alt={`Portrait of ${profile.name}`}
               fill
-              sizes="(min-width: 1024px) 240px, 100vw"
+              sizes="(min-width: 1024px) 280px, 100vw"
               className="object-cover"
               priority
             />

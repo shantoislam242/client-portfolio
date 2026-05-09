@@ -2,7 +2,10 @@ import { companies } from "@/lib/data";
 import { FadeIn } from "@/components/motion/fade-in";
 import { LogoipsumLogo } from "@/components/icons/logoipsum";
 
-const variants = [1, 2, 3] as const;
+const logoSequence = Array.from({ length: 8 }, (_, i) => {
+  const variant = ((i % 3) + 1) as 1 | 2 | 3;
+  return { id: i, variant };
+});
 
 export function CompaniesStrip() {
   return (
@@ -10,14 +13,17 @@ export function CompaniesStrip() {
       <p className="text-center font-inter text-xs uppercase tracking-wider text-text-secondary">
         {companies.caption}
       </p>
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-70">
-        {companies.logos.map((slug, i) => (
-          <LogoipsumLogo
-            key={slug}
-            variant={variants[i % 3]}
-            className="h-7 w-auto text-text-primary"
-          />
-        ))}
+      <div className="mt-8 marquee-mask overflow-hidden">
+        <div className="marquee-track flex w-max items-center gap-14 will-change-transform">
+          {[...logoSequence, ...logoSequence].map(({ id, variant }, i) => (
+            <LogoipsumLogo
+              key={`${i}-${id}`}
+              variant={variant}
+              className="h-7 w-auto shrink-0 text-text-primary opacity-70"
+              aria-hidden="true"
+            />
+          ))}
+        </div>
       </div>
     </FadeIn>
   );
