@@ -299,7 +299,7 @@ export const tools: Tool[] = [
   {
     name: "InDesign",
     role: "Editorial Layout",
-    icon: "https://skillicons.dev/icons?i=id",
+    icon: "/tools/indesign.svg",
   },
   {
     name: "After Effects",
@@ -314,7 +314,7 @@ export const tools: Tool[] = [
   {
     name: "Lightroom",
     role: "Color Grading",
-    icon: "https://skillicons.dev/icons?i=lr",
+    icon: "/tools/lightroom.svg",
   },
   {
     name: "Figma",
