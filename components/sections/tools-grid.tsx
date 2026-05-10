@@ -17,13 +17,14 @@ export function ToolsGrid() {
         {tools.map((t, i) => (
           <FadeIn key={t.name} delay={i * 0.05}>
             <div className="flex items-center gap-4 rounded-2xl border border-border-subtle bg-bg-card p-4 transition-colors hover:bg-bg-card-hover">
-              <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white overflow-hidden">
+              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl">
                 <Image
                   src={t.icon}
                   alt={`${t.name} icon`}
                   fill
                   sizes="48px"
-                  className="object-contain p-1"
+                  className="object-contain"
+                  unoptimized
                 />
               </div>
               <div>

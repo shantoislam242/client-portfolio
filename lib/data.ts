@@ -288,23 +288,43 @@ export type Tool = { name: string; role: string; icon: string };
 export const tools: Tool[] = [
   {
     name: "Photoshop",
-    role: "Photo Editing",
-    icon: "https://placehold.co/64x64/ffffff/31a8ff?text=Ps",
+    role: "Photo Editing & Compositing",
+    icon: "https://skillicons.dev/icons?i=ps",
   },
   {
     name: "Illustrator",
-    role: "Vector Design",
-    icon: "https://placehold.co/64x64/ffffff/ff9a00?text=Ai",
+    role: "Vector & Logo Design",
+    icon: "https://skillicons.dev/icons?i=ai",
+  },
+  {
+    name: "InDesign",
+    role: "Editorial Layout",
+    icon: "https://skillicons.dev/icons?i=id",
   },
   {
     name: "After Effects",
     role: "Motion Graphics",
-    icon: "https://placehold.co/64x64/ffffff/9999ff?text=Ae",
+    icon: "https://skillicons.dev/icons?i=ae",
   },
   {
     name: "Premiere Pro",
     role: "Video Editing",
-    icon: "https://placehold.co/64x64/ffffff/9999ff?text=Pr",
+    icon: "https://skillicons.dev/icons?i=pr",
+  },
+  {
+    name: "Lightroom",
+    role: "Color Grading",
+    icon: "https://skillicons.dev/icons?i=lr",
+  },
+  {
+    name: "Figma",
+    role: "UI & Prototyping",
+    icon: "https://skillicons.dev/icons?i=figma",
+  },
+  {
+    name: "Blender",
+    role: "3D & Motion",
+    icon: "https://skillicons.dev/icons?i=blender",
   },
 ];
 
