@@ -236,11 +236,17 @@ export const experience: ExperienceEntry[] = [
   },
 ];
 
+export type BlogBlock =
+  | { kind: "p"; text: string }
+  | { kind: "h2"; text: string };
+
 export type BlogPost = {
   slug: string;
   date: string;
   title: string;
   image: string;
+  excerpt: string;
+  content: BlogBlock[];
 };
 
 export const blogPosts: BlogPost[] = [
@@ -249,30 +255,151 @@ export const blogPosts: BlogPost[] = [
     date: "Apr 8, 2024",
     title: "Why Typography Is the Soul of Brand Identity",
     image: "https://placehold.co/640x400/1c1c1c/8b5cf6?text=Typography",
+    excerpt:
+      "Long before a logo registers as a shape, the typeface has already begun whispering. Here is why I spend the first week of every brand project just looking at letterforms.",
+    content: [
+      {
+        kind: "p",
+        text: "Type is the most overlooked yet most powerful tool in a brand designer's kit. Long before a logo registers as a shape, the typeface has already begun whispering — confident or hesitant, warm or austere, classical or radical. After a decade of building identities for studios from Dhaka to Dubai, I've come to believe that most of a brand's emotional signal is carried by typography alone.",
+      },
+      { kind: "h2", text: "The voice before the voice" },
+      {
+        kind: "p",
+        text: "When a customer encounters your brand for the first time, they don't read the manifesto on your About page. They read your menu, your invoice, your packaging. The typeface you use in those moments IS your voice. A geometric sans says clarity and modernity; a humanist serif says heritage and care; a condensed display says urgency and confidence.",
+      },
+      {
+        kind: "p",
+        text: "Choosing type is not a styling decision. It's a positioning decision. Which is why I spend the first week of any branding project just looking at letterforms — not designing, not sketching, just reading and listening.",
+      },
+      { kind: "h2", text: "The brief is in the counter" },
+      {
+        kind: "p",
+        text: "The negative space inside an \"o\" or \"e\" — what typographers call the counter — tells you more about a typeface's mood than any marketing description ever will. Wider counters feel friendlier and more democratic. Tight, dark counters feel premium and disciplined.",
+      },
+      {
+        kind: "p",
+        text: "When clients arrive with vague briefs (\"make it feel premium but approachable\"), I show them three logos set in three typefaces with very different counters. The brief writes itself. They point and say: that one. That's the brand.",
+      },
+      { kind: "h2", text: "Get it right early" },
+      {
+        kind: "p",
+        text: "Get the type right and most other decisions become easier. Color, layout, illustration, motion — they all follow naturally from a typographic foundation that has been chosen with care. Get type wrong and even the most beautiful palette and clever wordmark can't rescue the brand from feeling generic.",
+      },
+    ],
   },
   {
     slug: "color-theory-palette",
     date: "Mar 15, 2024",
     title: "Color Theory: Building a Palette That Speaks",
     image: "https://placehold.co/640x400/1c1c1c/8b5cf6?text=Color",
+    excerpt:
+      "A good palette is not a collection of colors that look pretty together — it is a system that tells your brand's story across every surface, screen, and season.",
+    content: [
+      {
+        kind: "p",
+        text: "Most palettes fail not because the colors are wrong, but because the relationships between the colors are unconsidered. A palette that survives in print, screen, packaging, and motion has to be designed as a system — not a moodboard.",
+      },
+      { kind: "h2", text: "Start with one decision, not five" },
+      {
+        kind: "p",
+        text: "Every palette I build begins with a single anchor color — the one decision that all others must serve. Once that anchor is set, every other choice (neutral, accent, alert, surface) becomes a question about contrast, hierarchy, and proportion rather than taste.",
+      },
+      {
+        kind: "p",
+        text: "This is why I never start a palette with five swatches on a board. I start with one. The other four exist only to make that one shine.",
+      },
+      { kind: "h2", text: "Test under pressure, not in showcase" },
+      {
+        kind: "p",
+        text: "A palette tested only in a polished case-study mockup will betray you on real surfaces. I test every palette in three places before signing it off: a 12-pixel button, a phone screen at noon outdoors, and a black-and-white photocopy. If the relationships hold there, they will hold anywhere.",
+      },
+      { kind: "h2", text: "Cultural color is contextual color" },
+      {
+        kind: "p",
+        text: "Working in South Asia has taught me that color carries cultural memory. Saffron is not just orange. Indigo is not just blue. A palette that ignores its cultural context becomes a translation rather than a voice.",
+      },
+    ],
   },
   {
     slug: "bengali-type-south-asian",
     date: "Feb 28, 2024",
     title: "How Bengali Type Is Redefining South Asian Design",
     image: "https://placehold.co/640x400/1c1c1c/8b5cf6?text=Bengali+Type",
+    excerpt:
+      "A new generation of type designers is treating Bangla not as a Latin add-on but as a primary script with its own rhythm, weight, and cultural voice. The shift is subtle, and overdue.",
+    content: [
+      {
+        kind: "p",
+        text: "For decades, Bangla type in branding was an afterthought — a Latin design with the script grafted on, often awkwardly. That era is ending. A new generation of type designers from Dhaka, Kolkata, and the diaspora is treating Bangla as a primary script with its own rhythm, weight, and history to preserve.",
+      },
+      { kind: "h2", text: "From translation to authorship" },
+      {
+        kind: "p",
+        text: "The most exciting projects I've seen recently start in Bangla and translate to English, not the other way around. The matra (the headline that connects letters in Bangla) becomes a design system anchor rather than a constraint to work around.",
+      },
+      { kind: "h2", text: "Why this matters beyond Bangladesh" },
+      {
+        kind: "p",
+        text: "When a script is treated with care in its primary form, it changes how global brands approach localisation everywhere. Bangla typography is part of a broader shift in non-Latin design — alongside Arabic, Devanagari, and CJK — that is forcing the industry to rethink what \"international\" branding really means.",
+      },
+      {
+        kind: "p",
+        text: "It's not about decoration. It's about authorship. And it's overdue.",
+      },
+    ],
   },
   {
     slug: "pricing-first-client",
     date: "Jan 12, 2024",
     title: "A Designer's Guide to Pricing Your First Client",
     image: "https://placehold.co/640x400/1c1c1c/8b5cf6?text=Pricing",
+    excerpt:
+      "Pricing your first paid project is mostly a confidence problem disguised as a math problem. Here is the framework I wish someone had handed me when I started.",
+    content: [
+      {
+        kind: "p",
+        text: "Pricing your first paid project is mostly a confidence problem disguised as a math problem. You don't need a complicated rate card. You need a simple framework that protects your time and gives the client clarity.",
+      },
+      { kind: "h2", text: "Price the deliverable, not the hour" },
+      {
+        kind: "p",
+        text: "Hourly billing punishes you for getting better. The faster and more skilled you become, the less you earn. Project-based pricing aligns the incentive: the client pays for the outcome, you keep the upside of efficiency.",
+      },
+      { kind: "h2", text: "Always quote a range" },
+      {
+        kind: "p",
+        text: "A single number sounds final and either too high or too low. A range (\"between X and Y depending on scope\") signals that you are thinking carefully and gives both sides room to negotiate without losing face.",
+      },
+      { kind: "h2", text: "Charge for revisions, not for thinking" },
+      {
+        kind: "p",
+        text: "Two rounds of feedback should be included. After that, additional revisions are billed separately at a clearly stated rate. This is not greedy — it's the only way to keep the project from quietly turning into unpaid work.",
+      },
+    ],
   },
   {
     slug: "print-not-dead",
     date: "Feb 6, 2024",
     title: "Print Is Not Dead: The Comeback of Editorial Design",
     image: "https://placehold.co/640x400/1c1c1c/8b5cf6?text=Print",
+    excerpt:
+      "Independent magazines, photo zines, and exhibition catalogues are quietly thriving — and they are pulling editorial design in directions the screen cannot follow.",
+    content: [
+      {
+        kind: "p",
+        text: "The obituary for print has been written more times than I can count. Yet, walk into any independent bookshop in Dhaka, London, or Tokyo and you will find shelves of beautifully designed magazines, photo zines, and exhibition catalogues — most of them launched in the last five years.",
+      },
+      { kind: "h2", text: "Print does what screens cannot" },
+      {
+        kind: "p",
+        text: "Print rewards slowness, intentionality, and the texture of paper. It cannot be A/B tested into mediocrity. It does not autoplay. It exists in one fixed form, which is exactly why it can take risks that a digital surface — endlessly tweakable — rarely will.",
+      },
+      { kind: "h2", text: "The new editorial designers" },
+      {
+        kind: "p",
+        text: "The most interesting editorial design today is happening at the margins — small print runs of 500 to 2000, often financed by patronage or pre-order. The designers behind these projects are treating layout as authorship, not service. The grid is back, and it has something to say.",
+      },
+    ],
   },
 ];
 
