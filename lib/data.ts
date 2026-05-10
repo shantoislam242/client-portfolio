@@ -147,10 +147,59 @@ export type ExperienceEntry = {
   href: string;
 };
 
+export const aboutIntro = {
+  headingPrefix: "A bit About",
+  headingAccent: "Me",
+  paragraphs: [
+    "I'm Arif — a graphic designer based in Dhaka, Bangladesh, with over a decade of experience helping brands across South Asia find their visual voice.",
+    "From editorial spreads to full brand systems, my work is shaped by thoughtful typography, considered color, and a deep curiosity about how design carries cultural meaning. I believe great design is quiet about itself but loud about what it represents.",
+  ],
+};
+
 export const experienceHeading = {
   prefix: "Over 10 Years of Design",
   accent: "Expertise",
 };
+
+export const educationHeading = {
+  prefix: "Academic",
+  accent: "Background",
+};
+
+export type EducationEntry = {
+  institution: string;
+  degree: string;
+  description: string;
+  period: string;
+  href: string;
+};
+
+export const education: EducationEntry[] = [
+  {
+    institution: "University of Dhaka",
+    degree: "Bachelor of Fine Arts — Graphic Design",
+    description:
+      "Specialised in typography, identity systems, and editorial design. Final thesis explored Bengali type in modern brand systems and won the departmental design award.",
+    period: "Jul 2011 — Jun 2015",
+    href: "#",
+  },
+  {
+    institution: "Pathshala South Asian Media Institute",
+    degree: "Workshop — Editorial & Visual Communication",
+    description:
+      "Six-week intensive on long-form editorial design, photo editing, and grid systems for print media. Mentored by senior editors of regional publications.",
+    period: "Jun 2016 — Jul 2016",
+    href: "#",
+  },
+  {
+    institution: "Notre Dame College, Dhaka",
+    degree: "Higher Secondary Certificate — Science",
+    description:
+      "Foundation in science with self-directed study in visual arts and digital illustration. Active member of the college creative arts club, leading event branding for cultural fests.",
+    period: "Jul 2009 — Jun 2011",
+    href: "#",
+  },
+];
 
 export const experience: ExperienceEntry[] = [
   {
