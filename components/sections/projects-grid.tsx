@@ -1,7 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
 import { projects } from "@/lib/data";
 import { FadeIn } from "@/components/motion/fade-in";
+import { ProjectCard } from "@/components/sections/project-card";
 
 type Props = { limit?: number };
 
@@ -20,29 +19,8 @@ export function ProjectsGrid({ limit }: Props) {
 
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
         {items.map((p, i) => (
-          <FadeIn key={p.slug} delay={i * 0.05}>
-            <Link
-              href={`/projects/${p.slug}`}
-              className="group block overflow-hidden rounded-2xl border border-border-subtle bg-bg-card transition-all hover:border-accent/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)]"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-bg-card-hover">
-                <Image
-                  src={p.image}
-                  alt={p.title}
-                  fill
-                  sizes="(min-width: 768px) 350px, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="font-outfit font-bold text-xl text-text-primary">
-                  {p.title}
-                </h3>
-                <p className="mt-1 font-poppins text-sm text-text-secondary">
-                  {p.subtitle}
-                </p>
-              </div>
-            </Link>
+          <FadeIn key={p.slug} delay={0.05 + i * 0.06}>
+            <ProjectCard project={p} />
           </FadeIn>
         ))}
       </div>

@@ -1,7 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
 import { blogPosts } from "@/lib/data";
 import { FadeIn } from "@/components/motion/fade-in";
+import { BlogCard } from "@/components/sections/blog-card";
 
 type Props = { limit?: number };
 
@@ -20,27 +19,8 @@ export function BlogGrid({ limit }: Props) {
 
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
         {items.map((post, i) => (
-          <FadeIn key={post.slug} delay={i * 0.05}>
-            <Link
-              href={`/blog/${post.slug}`}
-              className="group block overflow-hidden rounded-2xl border border-border-subtle bg-bg-card transition-all hover:border-accent/50"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-bg-card-hover">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  sizes="(min-width: 768px) 350px, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-5">
-                <p className="font-inter text-xs text-text-muted">{post.date}</p>
-                <h3 className="mt-2 font-outfit font-bold text-lg text-text-primary leading-snug">
-                  {post.title}
-                </h3>
-              </div>
-            </Link>
+          <FadeIn key={post.slug} delay={0.05 + i * 0.06}>
+            <BlogCard post={post} />
           </FadeIn>
         ))}
       </div>
