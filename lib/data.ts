@@ -63,6 +63,11 @@ export type Project = {
   title: string;
   subtitle: string;
   image: string;
+  excerpt: string;
+  year: string;
+  client: string;
+  services: string[];
+  content: ContentBlock[];
 };
 
 export const projects: Project[] = [
@@ -71,36 +76,171 @@ export const projects: Project[] = [
     title: "Nokshi",
     subtitle: "Fashion Brand Identity",
     image: "https://placehold.co/640x400/1c1c1c/8b5cf6?text=Nokshi",
+    excerpt:
+      "A new visual language for a Dhaka-based fashion label that wanted handwoven jamdani and muslin to speak to a younger, urban audience without losing its handcraft soul.",
+    year: "2023",
+    client: "Nokshi",
+    services: ["Brand identity", "Typography", "Packaging"],
+    content: [
+      {
+        kind: "p",
+        text: "Nokshi is a Dhaka-based fashion label working with handwoven jamdani and muslin from weavers in Tangail and Sonargaon. When the founders came to me, the brand felt rooted in heritage but distant from the urban audience they wanted to reach next.",
+      },
+      { kind: "h2", text: "The brief" },
+      {
+        kind: "p",
+        text: "Modernise without erasing. The new identity needed to hold its own next to international fashion labels on Instagram while still feeling unmistakably tied to the loom, the thread, the hand.",
+      },
+      { kind: "h2", text: "The approach" },
+      {
+        kind: "p",
+        text: "We built the entire system around a single custom-drawn ligature derived from a jamdani motif. The wordmark uses a contemporary serif with subtle weave-like terminals — quiet enough for a runway lookbook, distinct enough for a thumbnail.",
+      },
+      {
+        kind: "p",
+        text: "The packaging avoids the usual handcraft tropes (no kraft paper, no rope ties). Instead, a deep aubergine box with foil-blocked Bangla and Latin lockups makes opening a Nokshi piece feel like unboxing something from a museum gift shop.",
+      },
+      { kind: "h2", text: "The outcome" },
+      {
+        kind: "p",
+        text: "Six months after launch, the brand grew its Instagram following by 4× and was featured in two regional design publications. More importantly, weavers have started recognising the wordmark as their own — which was the part of the brief I cared about most.",
+      },
+    ],
   },
   {
     slug: "aronno",
     title: "Aronno",
     subtitle: "Eco Packaging Design",
     image: "https://placehold.co/640x400/1c1c1c/8b5cf6?text=Aronno",
+    excerpt:
+      "Packaging for an organic skincare brand built around a single principle: every surface should be either compostable or refillable, and every choice should be visible.",
+    year: "2023",
+    client: "Aronno Naturals",
+    services: ["Packaging", "Illustration", "Brand system"],
+    content: [
+      {
+        kind: "p",
+        text: "Aronno makes small-batch organic skincare from indigenous botanicals — neem, amla, hibiscus, ritha. The product was clean. The packaging it arrived in was not.",
+      },
+      { kind: "h2", text: "Designing what shows" },
+      {
+        kind: "p",
+        text: "We replaced laminated cartons with uncoated FSC-certified board, switched bottles to refillable amber glass, and hand-illustrated each ingredient as a botanical line drawing — visible through a die-cut window in the box.",
+      },
+      { kind: "h2", text: "The harder choice" },
+      {
+        kind: "p",
+        text: "The harder decision was structural. We removed the secondary box for half the range. Customers dislike opening packaging that feels skimpy, so we replaced ceremony with information: the bottle itself became a small monograph about the ingredient, the farmer, and the process.",
+      },
+    ],
   },
   {
     slug: "padma",
     title: "Padma",
     subtitle: "Editorial Magazine",
     image: "https://placehold.co/640x400/1c1c1c/8b5cf6?text=Padma",
+    excerpt:
+      "Art direction and design system for a quarterly print magazine covering literature, culture, and visual essays from across the Bengal delta.",
+    year: "2022",
+    client: "Padma Quarterly",
+    services: ["Editorial design", "Art direction", "Type system"],
+    content: [
+      {
+        kind: "p",
+        text: "Padma Quarterly is a 144-page print magazine that publishes long-form journalism, fiction, and photo essays from Bangladesh and West Bengal. The previous design treated Bangla as a footnote. We rebuilt the system around it.",
+      },
+      { kind: "h2", text: "Bangla-first grid" },
+      {
+        kind: "p",
+        text: "Every layout in the new design starts from the Bangla typesetting and flows English alongside it as a parallel column rather than a translation. The grid honours the matra and accommodates the natural vertical extension of conjunct characters without distortion.",
+      },
+      { kind: "h2", text: "A typeface for the long read" },
+      {
+        kind: "p",
+        text: "We commissioned a custom Bangla text face from a typographer in Kolkata, paired with a low-contrast English serif for English passages. Headlines use a display variant that subtly references woodblock printing — a nod to the magazine's roots in regional print history.",
+      },
+    ],
   },
   {
     slug: "dhaka-metro",
     title: "Dhaka Metro",
     subtitle: "Wayfinding System",
     image: "https://placehold.co/640x400/1c1c1c/8b5cf6?text=Dhaka+Metro",
+    excerpt:
+      "A speculative wayfinding system for the Dhaka MRT designed around bilingual legibility, glanceable hierarchy, and a colour palette that survives cataract sunlight.",
+    year: "2022",
+    client: "Self-initiated",
+    services: ["Wayfinding", "Typography", "Signage system"],
+    content: [
+      {
+        kind: "p",
+        text: "This was a self-initiated project responding to early signage on the Dhaka MRT line — functional, but inconsistent and hard to read at speed. I wanted to explore what a fully bilingual transit system, designed from the ground up, could look like.",
+      },
+      { kind: "h2", text: "Reading at three meters per second" },
+      {
+        kind: "p",
+        text: "Transit signage is read while moving. Every choice — type weight, x-height, line spacing, arrow geometry — is calibrated to be glanceable at speed. We tested mockups on actual MRT platforms with commuters, refining glyph weight and spacing across three iterations.",
+      },
+      { kind: "h2", text: "Colour for sunlight" },
+      {
+        kind: "p",
+        text: "Dhaka light is harsh and yellow at noon. Many transit palettes designed in temperate climates wash out under tropical sun. We tested every line color against a reference photograph taken at 1pm and adjusted saturation accordingly.",
+      },
+    ],
   },
   {
     slug: "shoroth",
     title: "Shoroth",
     subtitle: "Typography Poster Series",
     image: "https://placehold.co/640x400/1c1c1c/8b5cf6?text=Shoroth",
+    excerpt:
+      "A self-initiated series of twelve large-format posters exploring the rhythm of Bangla type during Shoroth — the brief autumnal season between monsoon and winter.",
+    year: "2021",
+    client: "Self-initiated",
+    services: ["Poster design", "Typography", "Print production"],
+    content: [
+      {
+        kind: "p",
+        text: "Shoroth is a typographic love letter to one of the six Bengali seasons — that short, golden window after the monsoon ends and before the winter arrives. The series is twelve A1 posters, one for each line of a Tagore poem set in twelve different Bangla typefaces.",
+      },
+      { kind: "h2", text: "One poem, twelve voices" },
+      {
+        kind: "p",
+        text: "Setting the same line of poetry in twelve different typefaces — old and new, lead-cut and digital — turns the series into an argument about how much a typeface can change the meaning of a sentence without changing a word.",
+      },
+      { kind: "h2", text: "Risograph in two colours" },
+      {
+        kind: "p",
+        text: "The posters were produced on a risograph in two colour passes — a soft yellow and a deep indigo. The slight registration drift of risograph printing felt right for a series about a season that is itself slightly out of focus.",
+      },
+    ],
   },
   {
     slug: "boithok",
     title: "Boithok",
     subtitle: "Conference Branding",
     image: "https://placehold.co/640x400/1c1c1c/8b5cf6?text=Boithok",
+    excerpt:
+      "Identity, environmental graphics, and motion design for the inaugural edition of a regional design conference held at the Bangladesh Shilpakala Academy.",
+    year: "2021",
+    client: "Boithok Design Conference",
+    services: ["Identity", "Motion", "Environmental graphics"],
+    content: [
+      {
+        kind: "p",
+        text: "Boithok — meaning 'a sitting' or 'a gathering' in Bangla — is a two-day design conference that brings together designers from across South Asia. We built the brand for the first edition in 2021.",
+      },
+      { kind: "h2", text: "An identity that gathers" },
+      {
+        kind: "p",
+        text: "The wordmark is built from individual letterforms designed by six different contributing typographers — each letter carries a slightly different voice, but the word reads as one. The whole system is essentially a typographic boithok.",
+      },
+      { kind: "h2", text: "Filling a building with type" },
+      {
+        kind: "p",
+        text: "The Shilpakala Academy is a brutalist concrete building that demands a graphic system loud enough to hold its own. Vinyl wraps, hanging banners, and projection-mapped opening titles turned every concrete surface into a typographic stage for the duration of the event.",
+      },
+    ],
   },
 ];
 
@@ -236,7 +376,7 @@ export const experience: ExperienceEntry[] = [
   },
 ];
 
-export type BlogBlock =
+export type ContentBlock =
   | { kind: "p"; text: string }
   | { kind: "h2"; text: string };
 
@@ -246,7 +386,7 @@ export type BlogPost = {
   title: string;
   image: string;
   excerpt: string;
-  content: BlogBlock[];
+  content: ContentBlock[];
 };
 
 export const blogPosts: BlogPost[] = [

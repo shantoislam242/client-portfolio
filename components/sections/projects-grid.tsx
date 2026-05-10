@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { projects } from "@/lib/data";
 import { FadeIn } from "@/components/motion/fade-in";
 
@@ -20,8 +21,8 @@ export function ProjectsGrid({ limit }: Props) {
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
         {items.map((p, i) => (
           <FadeIn key={p.slug} delay={i * 0.05}>
-            <a
-              href="#"
+            <Link
+              href={`/projects/${p.slug}`}
               className="group block overflow-hidden rounded-2xl border border-border-subtle bg-bg-card transition-all hover:border-accent/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)]"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-bg-card-hover">
@@ -41,7 +42,7 @@ export function ProjectsGrid({ limit }: Props) {
                   {p.subtitle}
                 </p>
               </div>
-            </a>
+            </Link>
           </FadeIn>
         ))}
       </div>
