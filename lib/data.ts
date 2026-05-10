@@ -68,6 +68,7 @@ export type Project = {
   client: string;
   services: string[];
   content: ContentBlock[];
+  gallery: string[];
 };
 
 export const projects: Project[] = [
@@ -106,6 +107,12 @@ export const projects: Project[] = [
         text: "Six months after launch, the brand grew its Instagram following by 4× and was featured in two regional design publications. More importantly, weavers have started recognising the wordmark as their own — which was the part of the brief I cared about most.",
       },
     ],
+    gallery: [
+      "https://placehold.co/800x600/4a1d4a/d4af37?text=Logo+Mark",
+      "https://placehold.co/800x600/2d0e2d/c9a96e?text=Packaging",
+      "https://placehold.co/800x600/4a1d4a/ffffff?text=Lookbook",
+      "https://placehold.co/800x600/161616/8b5cf6?text=Type+System",
+    ],
   },
   {
     slug: "aronno",
@@ -132,6 +139,12 @@ export const projects: Project[] = [
         kind: "p",
         text: "The harder decision was structural. We removed the secondary box for half the range. Customers dislike opening packaging that feels skimpy, so we replaced ceremony with information: the bottle itself became a small monograph about the ingredient, the farmer, and the process.",
       },
+    ],
+    gallery: [
+      "https://placehold.co/800x600/2d3e2c/d4c896?text=Bottle",
+      "https://placehold.co/800x600/3a4a35/e8dcc0?text=Box+Front",
+      "https://placehold.co/800x600/2d3e2c/8b5cf6?text=Illustration",
+      "https://placehold.co/800x600/4a3a25/d4c896?text=Refill+System",
     ],
   },
   {
@@ -160,6 +173,12 @@ export const projects: Project[] = [
         text: "We commissioned a custom Bangla text face from a typographer in Kolkata, paired with a low-contrast English serif for English passages. Headlines use a display variant that subtly references woodblock printing — a nod to the magazine's roots in regional print history.",
       },
     ],
+    gallery: [
+      "https://placehold.co/800x600/f5e6d3/2c1810?text=Cover+01",
+      "https://placehold.co/800x600/f5e6d3/8b5cf6?text=Spread",
+      "https://placehold.co/800x600/2c1810/f5e6d3?text=Cover+02",
+      "https://placehold.co/800x600/4a3a25/f5e6d3?text=Type+Pairing",
+    ],
   },
   {
     slug: "dhaka-metro",
@@ -186,6 +205,12 @@ export const projects: Project[] = [
         kind: "p",
         text: "Dhaka light is harsh and yellow at noon. Many transit palettes designed in temperate climates wash out under tropical sun. We tested every line color against a reference photograph taken at 1pm and adjusted saturation accordingly.",
       },
+    ],
+    gallery: [
+      "https://placehold.co/800x600/0d3e7a/f5d100?text=Platform+Sign",
+      "https://placehold.co/800x600/0d3e7a/ffffff?text=System+Map",
+      "https://placehold.co/800x600/c8102e/ffffff?text=Line+Marker",
+      "https://placehold.co/800x600/2c5530/ffffff?text=Exit+Sign",
     ],
   },
   {
@@ -214,6 +239,12 @@ export const projects: Project[] = [
         text: "The posters were produced on a risograph in two colour passes — a soft yellow and a deep indigo. The slight registration drift of risograph printing felt right for a series about a season that is itself slightly out of focus.",
       },
     ],
+    gallery: [
+      "https://placehold.co/800x600/f5d100/2a3380?text=Poster+01",
+      "https://placehold.co/800x600/2a3380/f5d100?text=Poster+02",
+      "https://placehold.co/800x600/f5d100/2a3380?text=Poster+03",
+      "https://placehold.co/800x600/2a3380/f5d100?text=Poster+04",
+    ],
   },
   {
     slug: "boithok",
@@ -240,6 +271,12 @@ export const projects: Project[] = [
         kind: "p",
         text: "The Shilpakala Academy is a brutalist concrete building that demands a graphic system loud enough to hold its own. Vinyl wraps, hanging banners, and projection-mapped opening titles turned every concrete surface into a typographic stage for the duration of the event.",
       },
+    ],
+    gallery: [
+      "https://placehold.co/800x600/3a3a3a/8b5cf6?text=Wordmark",
+      "https://placehold.co/800x600/161616/ffffff?text=Banner",
+      "https://placehold.co/800x600/525252/8b5cf6?text=Wayfinding",
+      "https://placehold.co/800x600/2a2a2a/ffffff?text=Stage+Titles",
     ],
   },
 ];

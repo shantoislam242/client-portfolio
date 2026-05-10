@@ -97,6 +97,32 @@ export function ProjectDetail({ project }: Props) {
         </div>
       </FadeIn>
 
+      {project.gallery.length > 0 && (
+        <section className="mt-20">
+          <FadeIn>
+            <h2 className="font-outfit font-bold text-3xl md:text-4xl leading-tight text-text-primary">
+              Selected <span className="text-accent">Visuals</span>
+            </h2>
+          </FadeIn>
+
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+            {project.gallery.map((src, i) => (
+              <FadeIn key={src} delay={i * 0.05}>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border-subtle bg-bg-card">
+                  <Image
+                    src={src}
+                    alt={`${project.title} — visual sample ${i + 1}`}
+                    fill
+                    sizes="(min-width: 768px) 350px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </section>
+      )}
+
       {moreProjects.length > 0 && (
         <section className="mt-20">
           <FadeIn>
