@@ -31,9 +31,9 @@ export const profile = {
 
 export const navItems = [
   { href: "/", label: "Home", icon: Home },
+  { href: "/about", label: "About", icon: Briefcase },
   { href: "/projects", label: "Projects", icon: Folder },
   { href: "/tools", label: "Tools", icon: Wrench },
-  { href: "/experience", label: "Experience", icon: Briefcase },
   { href: "/blog", label: "Blog", icon: SquarePen },
   { href: "/contact", label: "Contact", icon: Mail },
 ] as const;

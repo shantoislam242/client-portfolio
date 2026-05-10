@@ -1,9 +1,9 @@
 import { ExperienceList } from "@/components/sections/experience-list";
 
 export const metadata = {
-  title: "Experience — Arif Hossain",
+  title: "About — Arif Hossain",
 };
 
-export default function ExperiencePage() {
+export default function AboutPage() {
   return <ExperienceList />;
 }
