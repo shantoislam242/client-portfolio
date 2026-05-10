@@ -27,9 +27,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Arif Hossain — Graphic Designer",
+  title: "Arifujjaman — Graphic & Motion Designer",
   description:
-    "Crafting visual stories that move people. Brand identity, editorial, packaging, and motion graphics by Arif Hossain, based in Dhaka, Bangladesh.",
+    "Crafting visual stories that move people. Brand identity, motion graphics, and video editing by Arifujjaman, a graphic and motion designer based in Dhaka, Bangladesh.",
 };
 
 export default function RootLayout({

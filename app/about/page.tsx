@@ -3,7 +3,7 @@ import { ExperienceList } from "@/components/sections/experience-list";
 import { EducationList } from "@/components/sections/education-list";
 
 export const metadata = {
-  title: "About — Arif Hossain",
+  title: "About — Arifujjaman",
 };
 
 export default function AboutPage() {

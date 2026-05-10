@@ -13,11 +13,11 @@ export async function generateMetadata({ params }: { params: Params }) {
   const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) {
-    return { title: "Post not found — Arif Hossain" };
+    return { title: "Post not found — Arifujjaman" };
   }
 
   return {
-    title: `${post.title} — Arif Hossain`,
+    title: `${post.title} — Arifujjaman`,
     description: post.excerpt,
   };
 }

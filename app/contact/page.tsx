@@ -1,7 +1,7 @@
 import { ContactForm } from "@/components/sections/contact-form";
 
 export const metadata = {
-  title: "Contact — Arif Hossain",
+  title: "Contact — Arifujjaman",
 };
 
 export default function ContactPage() {

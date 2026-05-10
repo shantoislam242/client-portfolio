@@ -1,7 +1,7 @@
 import { BlogGrid } from "@/components/sections/blog-grid";
 
 export const metadata = {
-  title: "Blog — Arif Hossain",
+  title: "Blog — Arifujjaman",
 };
 
 export default function BlogPage() {

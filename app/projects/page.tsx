@@ -1,7 +1,7 @@
 import { ProjectsGrid } from "@/components/sections/projects-grid";
 
 export const metadata = {
-  title: "Projects — Arif Hossain",
+  title: "Projects — Arifujjaman",
 };
 
 export default function ProjectsPage() {

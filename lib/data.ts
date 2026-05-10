@@ -8,8 +8,9 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { BehanceIcon } from "@/components/icons/behance";
-import { DribbbleIcon } from "@/components/icons/dribbble";
-import { InstagramIcon } from "@/components/icons/instagram";
+import { LinkedinIcon } from "@/components/icons/linkedin";
+import { FacebookIcon } from "@/components/icons/facebook";
+import { YoutubeIcon } from "@/components/icons/youtube";
 import type { ComponentType, SVGProps } from "react";
 
 export type IconComponent =
@@ -17,15 +18,16 @@ export type IconComponent =
   | ComponentType<SVGProps<SVGSVGElement>>;
 
 export const profile = {
-  name: "Arif Hossain",
-  role: "Graphic Designer",
-  location: "Dhaka, Bangladesh",
-  portrait: "https://placehold.co/480x600/1c1c1c/8b5cf6?text=AH",
+  name: "Arifujjaman",
+  role: "Graphic & Motion Designer",
+  location: "Tejgaon, Dhaka, Bangladesh",
+  portrait: "https://placehold.co/480x600/1c1c1c/8b5cf6?text=AJ",
   socials: [
-    { label: "Behance", href: "#", icon: BehanceIcon },
-    { label: "Dribbble", href: "#", icon: DribbbleIcon },
-    { label: "Instagram", href: "#", icon: InstagramIcon },
-    { label: "Email", href: "mailto:hello@arifhossain.com", icon: Mail },
+    { label: "Behance", href: "https://www.behance.net/arifdesigner77", icon: BehanceIcon },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/arif-designer77/", icon: LinkedinIcon },
+    { label: "Facebook", href: "https://www.facebook.com/arifdesigner77", icon: FacebookIcon },
+    { label: "YouTube", href: "https://www.youtube.com/@ArtistixArif", icon: YoutubeIcon },
+    { label: "Email", href: "mailto:mdrjarif68723@gmail.com", icon: Mail },
   ],
 } as const;
 
@@ -42,15 +44,15 @@ export const hero = {
   headingPrefix: "Crafting Visual Stories That Move",
   headingAccent: "People",
   description:
-    "Passionate about turning ideas into striking visuals — from brand identities to editorial design that resonates and connects.",
+    "Passionate about turning ideas into striking visuals — from brand systems and editorial design to motion content that resonates and connects.",
   primaryCta: { label: "Let's Talk", href: "/contact" },
   secondaryCta: { label: "My Work", href: "/projects" },
 } as const;
 
 export const stats = [
-  { value: 10, prefix: "+", label: "Years of Experience" },
-  { value: 85, prefix: "+", label: "Projects Completed" },
-  { value: 40, prefix: "+", label: "Happy Clients" },
+  { value: 4, prefix: "+", label: "Years of Experience" },
+  { value: 50, prefix: "+", label: "Projects Completed" },
+  { value: 20, prefix: "+", label: "Happy Clients" },
 ] as const;
 
 export const companies = {
@@ -287,32 +289,22 @@ export const tools: Tool[] = [
   {
     name: "Photoshop",
     role: "Photo Editing",
-    icon: "https://placehold.co/64x64/ffffff/8b5cf6?text=Ps",
+    icon: "https://placehold.co/64x64/ffffff/31a8ff?text=Ps",
   },
   {
     name: "Illustrator",
     role: "Vector Design",
-    icon: "https://placehold.co/64x64/ffffff/8b5cf6?text=Ai",
-  },
-  {
-    name: "Figma",
-    role: "UI & Prototyping",
-    icon: "https://placehold.co/64x64/ffffff/8b5cf6?text=Fg",
-  },
-  {
-    name: "InDesign",
-    role: "Editorial Layout",
-    icon: "https://placehold.co/64x64/ffffff/8b5cf6?text=Id",
+    icon: "https://placehold.co/64x64/ffffff/ff9a00?text=Ai",
   },
   {
     name: "After Effects",
     role: "Motion Graphics",
-    icon: "https://placehold.co/64x64/ffffff/8b5cf6?text=Ae",
+    icon: "https://placehold.co/64x64/ffffff/9999ff?text=Ae",
   },
   {
-    name: "Procreate",
-    role: "Digital Illustration",
-    icon: "https://placehold.co/64x64/ffffff/8b5cf6?text=Pr",
+    name: "Premiere Pro",
+    role: "Video Editing",
+    icon: "https://placehold.co/64x64/ffffff/9999ff?text=Pr",
   },
 ];
 
@@ -328,14 +320,14 @@ export const aboutIntro = {
   headingPrefix: "A bit About",
   headingAccent: "Me",
   paragraphs: [
-    "I'm Arif — a graphic designer based in Dhaka, Bangladesh, with over a decade of experience helping brands across South Asia find their visual voice.",
-    "From editorial spreads to full brand systems, my work is shaped by thoughtful typography, considered color, and a deep curiosity about how design carries cultural meaning. I believe great design is quiet about itself but loud about what it represents.",
+    "My name is Arifujjaman, and I am a graphic designer who believes that design can change the world. My specialties are graphic design, animation, and video editing — across brand systems, motion content, and visuals for digital products.",
+    "I am constantly inspired by the world around me and strive to create designs that are both beautiful and functional. My work has helped brands across Bangladesh find their visual voice across e-commerce, education, and lifestyle sectors.",
   ],
 };
 
 export const experienceHeading = {
-  prefix: "Over 10 Years of Design",
-  accent: "Expertise",
+  prefix: "My Professional",
+  accent: "Journey",
 };
 
 export const educationHeading = {
@@ -353,62 +345,78 @@ export type EducationEntry = {
 
 export const education: EducationEntry[] = [
   {
-    institution: "University of Dhaka",
-    degree: "Bachelor of Fine Arts — Graphic Design",
+    institution: "Daffodil International University",
+    degree: "Bachelor of Science — Computer Science & Engineering",
     description:
-      "Specialised in typography, identity systems, and editorial design. Final thesis explored Bengali type in modern brand systems and won the departmental design award.",
-    period: "Jul 2011 — Jun 2015",
+      "Studied at DIU's Faculty of Science & IT, building a foundation in software engineering and computer graphics alongside self-directed work in visual design. Graduated with a CGPA of 2.99 / 4.00.",
+    period: "Jan 2016 — Jun 2022",
     href: "#",
   },
   {
-    institution: "Pathshala South Asian Media Institute",
-    degree: "Workshop — Editorial & Visual Communication",
-    description:
-      "Six-week intensive on long-form editorial design, photo editing, and grid systems for print media. Mentored by senior editors of regional publications.",
-    period: "Jun 2016 — Jul 2016",
-    href: "#",
-  },
-  {
-    institution: "Notre Dame College, Dhaka",
+    institution: "Narsingdi Science College",
     degree: "Higher Secondary Certificate — Science",
     description:
-      "Foundation in science with self-directed study in visual arts and digital illustration. Active member of the college creative arts club, leading event branding for cultural fests.",
-    period: "Jul 2009 — Jun 2011",
+      "Completed HSC in Science under the Dhaka Education Board with GPA 4.42 / 5.00. Active in college creative and cultural events.",
+    period: "Jul 2013 — Jun 2015",
+    href: "#",
+  },
+  {
+    institution: "Madhabdi SP Institution",
+    degree: "Secondary School Certificate — Science",
+    description:
+      "Completed SSC in Science under the Dhaka Education Board with GPA 4.75 / 5.00. Member of the school scout team.",
+    period: "Jan 2009 — Jun 2013",
+    href: "#",
+  },
+  {
+    institution: "Creative IT Institution",
+    degree: "Professional Graphic Design — Certificate",
+    description:
+      "Comprehensive professional training in social media post design, logo design, product animation, business cards, flyer design, and video editing. Performed at the institute's Jago Ucchashe alumni event in March 2022.",
+    period: "Jan 2022 — Aug 2022",
     href: "#",
   },
 ];
 
 export const experience: ExperienceEntry[] = [
   {
-    company: "Drik Studio",
-    role: "Senior Brand Designer",
+    company: "Databrandix",
+    role: "Senior Visual Artist",
     description:
-      "Led brand identity projects for fintech and lifestyle clients across South Asia, mentoring junior designers and shaping the studio's visual language.",
-    period: "Mar 2022 — Present",
+      "Leading visual identity and motion direction at Databrandix, crafting brand systems, motion content, and campaign visuals across fintech, lifestyle, and SaaS clients.",
+    period: "Jan 2026 — Present",
     href: "#",
   },
   {
-    company: "Pencil & Pixel",
+    company: "Sonarga University",
+    role: "Visual Artist",
+    description:
+      "Designed academic publications, event branding, and visual content for the university's communications team — across editorial, web, and social formats.",
+    period: "Jan 2025 — Dec 2025",
+    href: "#",
+  },
+  {
+    company: "GlobalED",
     role: "Graphic Designer",
     description:
-      "Designed packaging, editorial spreads, and campaign visuals for FMCG and publishing clients.",
-    period: "Jan 2019 — Feb 2022",
+      "Graphic and video editing for GlobalED — Bangladesh's authorized IELTS testing centre operated by Global Citizen Limited. Built campaign visuals, training materials, and motion content for the test-prep platform.",
+    period: "Apr 2024 — Dec 2024",
     href: "#",
   },
   {
-    company: "Bondhu Creative",
-    role: "Junior Designer",
+    company: "Pingu's English & Global Citizen",
+    role: "Senior Graphic & Motion Designer",
     description:
-      "Built brand collateral, social media visuals, and event identities for early-stage startups.",
-    period: "Aug 2016 — Dec 2018",
+      "Senior graphic and motion designer for Pingu's English — an international children's English-learning brand — and Global Citizen Limited. Led visual content for online courses, social campaigns, and animated lessons.",
+    period: "Mar 2023 — Mar 2024",
     href: "#",
   },
   {
-    company: "Studio Lalon",
-    role: "Design Intern",
+    company: "Jachai.com",
+    role: "Junior Graphic Designer",
     description:
-      "Assisted with print production, illustration support, and pitch decks for cultural and NGO clients.",
-    period: "May 2015 — Jul 2016",
+      "Junior graphic designer at Jachai.com — Bangladesh's largest online marketplace. Designed product banners, e-commerce visuals, social media content, and category artwork connecting buyers with sellers.",
+    period: "Feb 2022 — Feb 2023",
     href: "#",
   },
 ];
@@ -623,7 +631,7 @@ export const faqs: FAQ[] = [
   {
     question: "What tools do you use?",
     answer:
-      "Photoshop, Illustrator, InDesign, Figma, After Effects, and Procreate for illustration.",
+      "Photoshop and Illustrator for graphic design, After Effects and Premiere Pro for motion and video editing.",
   },
 ];
 
@@ -640,5 +648,5 @@ export const contactPage = {
 };
 
 export const footer = {
-  text: "Designed & built by Arif Hossain · 2026",
+  text: "Designed & built by Arifujjaman · 2026",
 };
