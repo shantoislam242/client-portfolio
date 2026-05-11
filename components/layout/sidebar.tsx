@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { profile, hero } from "@/lib/data";
+import { StickyCard } from "@/components/layout/sticky-card";
 
 export function Sidebar() {
   return (
     <aside className="w-full lg:w-[320px] shrink-0">
-      <div className="lg:sticky lg:top-24">
+      <StickyCard topPadding={96} bottomPadding={24}>
         <div className="rounded-3xl bg-bg-card border border-border-subtle p-5">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-bg-card-hover">
             <Image
@@ -48,7 +49,7 @@ export function Sidebar() {
             {hero.primaryCta.label}
           </Link>
         </div>
-      </div>
+      </StickyCard>
     </aside>
   );
 }
