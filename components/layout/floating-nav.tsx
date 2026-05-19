@@ -31,7 +31,7 @@ export function FloatingNav() {
                     aria-label={label}
                     aria-current={isActive ? "page" : undefined}
                     className={cn(
-                      "flex h-10 w-10 items-center justify-center rounded-xl transition-all",
+                      "flex h-10 w-10 items-center justify-center rounded-md transition-all",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
                       isActive
                         ? "bg-accent text-white"

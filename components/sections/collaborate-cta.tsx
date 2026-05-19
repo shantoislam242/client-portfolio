@@ -21,7 +21,7 @@ export function CollaborateCTA() {
         <h2 className="font-outfit font-bold text-4xl md:text-5xl leading-tight text-text-primary">
           {collaborateCta.headingLine1}
         </h2>
-        <h2 className="font-outfit font-bold text-4xl md:text-5xl leading-tight text-accent">
+        <h2 className="font-outfit font-bold text-4xl md:text-5xl leading-tight text-accent-purple">
           {collaborateCta.headingLine2}
         </h2>
 

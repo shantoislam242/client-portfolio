@@ -7,7 +7,7 @@ export function AboutIntro() {
       <FadeIn>
         <h1 className="font-outfit font-bold text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-text-primary">
           {aboutIntro.headingPrefix}{" "}
-          <span className="text-accent">{aboutIntro.headingAccent}</span>
+          <span className="text-accent-purple">{aboutIntro.headingAccent}</span>
         </h1>
       </FadeIn>
 

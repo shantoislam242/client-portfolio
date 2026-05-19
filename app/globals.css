@@ -15,6 +15,7 @@
   --color-text-muted: var(--text-muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-purple: var(--accent-purple);
 
   /* Fonts — exposed as font-outfit, font-poppins, font-inter */
   --font-outfit: var(--ff-outfit);
@@ -64,46 +65,48 @@
 }
 
 :root {
-  /* Portfolio palette — matches Framer reference: dark gray canvas (not pure black)
-     with a subtle grain overlay applied via body::after */
-  --bg-primary: #0e0e0e;             /* dark gray, not pure black — feels warmer */
-  --bg-card: #1a1a1a;                /* ≈ white @ 10% */
-  --bg-card-hover: #222222;          /* ≈ white @ 13% */
-  --border-subtle: #2a2a2a;          /* ≈ white @ 16.5% */
-  --text-primary: #ffffff;           /* "White" */
-  --text-secondary: #a3a3a3;         /* "Gray" — ≈ white @ 64% */
-  --text-muted: #525252;             /* ≈ white @ 32% */
-  --accent: #8b5cf6;                 /* "Purple" */
-  --accent-hover: #a78bfa;
-  --accent-glow: rgba(139, 92, 246, 0.15);
+  /* Seera-inspired palette
+     Page is true black; cards lift via background color, not borders.
+     Blue is the primary interaction color; purple is reserved for decorative
+     last-word heading accents. */
+  --bg-primary: #000000;             /* Page background — pure black */
+  --bg-card: #272829;                /* Card / surface */
+  --bg-card-hover: #2C2D2F;          /* Card hover / elevated surface */
+  --border-subtle: #2C2D2F;          /* Subtle dividers when needed */
+  --text-primary: #ffffff;
+  --text-secondary: #D9D9D9;         /* Light gray for secondary text */
+  --text-muted: #6e6e70;             /* Dimmer label color */
+  --accent: #0000EE;                 /* Primary interaction — electric blue */
+  --accent-hover: #0082CC;
+  --accent-purple: #914BF1;          /* Decorative highlight — sparing use */
 
-  /* shadcn primitives — mapped to portfolio palette so Button/Input/etc. inherit */
-  --background: #0e0e0e;
+  /* shadcn primitives — mapped to portfolio palette */
+  --background: #000000;
   --foreground: #ffffff;
-  --card: #1a1a1a;
+  --card: #272829;
   --card-foreground: #ffffff;
-  --popover: #1a1a1a;
+  --popover: #272829;
   --popover-foreground: #ffffff;
-  --primary: #8b5cf6;
+  --primary: #0000EE;
   --primary-foreground: #ffffff;
-  --secondary: #1c1c1c;
+  --secondary: #272829;
   --secondary-foreground: #ffffff;
-  --muted: #262626;
-  --muted-foreground: #a3a3a3;
+  --muted: #2C2D2F;
+  --muted-foreground: #D9D9D9;
   --accent-foreground: #ffffff;
   --destructive: #b91c1c;
-  --border: #262626;
-  --input: #262626;
-  --ring: #8b5cf6;
+  --border: #2C2D2F;
+  --input: #2C2D2F;
+  --ring: #0000EE;
   --radius: 1rem;
-  --sidebar: #161616;
+  --sidebar: #272829;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #8b5cf6;
+  --sidebar-primary: #0000EE;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1c1c1c;
+  --sidebar-accent: #2C2D2F;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #262626;
-  --sidebar-ring: #8b5cf6;
+  --sidebar-border: #2C2D2F;
+  --sidebar-ring: #0000EE;
 }
 
 @media (prefers-reduced-motion: reduce) {

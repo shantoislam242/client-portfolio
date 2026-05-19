@@ -13,7 +13,7 @@ export function BlogGrid({ limit }: Props) {
         <h2 className="font-outfit font-bold text-4xl md:text-5xl leading-tight text-text-primary">
           Design Thoughts
           <br />
-          and <span className="text-accent">Perspectives</span>
+          and <span className="text-accent-purple">Perspectives</span>
         </h2>
       </FadeIn>
 

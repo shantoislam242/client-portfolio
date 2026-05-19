@@ -26,7 +26,7 @@ export function ContactForm() {
       <FadeIn>
         <h1 className="font-outfit font-bold text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-text-primary">
           {contactPage.headingPrefix}{" "}
-          <span className="text-accent">{contactPage.headingAccent}</span>
+          <span className="text-accent-purple">{contactPage.headingAccent}</span>
         </h1>
       </FadeIn>
 
@@ -89,7 +89,7 @@ export function ContactForm() {
           <Button
             type="submit"
             disabled={submitting}
-            className="w-full bg-accent hover:bg-accent-hover text-white"
+            className="w-full rounded-full bg-accent hover:bg-accent-hover text-white py-3 h-auto"
           >
             {submitting ? "Sending..." : "Send"}
           </Button>

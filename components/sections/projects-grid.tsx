@@ -13,7 +13,7 @@ export function ProjectsGrid({ limit }: Props) {
         <h2 className="font-outfit font-bold text-4xl md:text-5xl leading-tight text-text-primary">
           Recent Projects
           <br />
-          and <span className="text-accent">Achievements</span>
+          and <span className="text-accent-purple">Achievements</span>
         </h2>
       </FadeIn>
 

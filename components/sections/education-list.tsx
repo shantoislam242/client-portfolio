@@ -9,7 +9,7 @@ export function EducationList() {
       <FadeIn>
         <h2 className="font-outfit font-bold text-4xl md:text-5xl leading-tight text-text-primary">
           {educationHeading.prefix}{" "}
-          <span className="text-accent">{educationHeading.accent}</span>
+          <span className="text-accent-purple">{educationHeading.accent}</span>
         </h2>
       </FadeIn>
 

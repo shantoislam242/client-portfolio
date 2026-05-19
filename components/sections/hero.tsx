@@ -13,7 +13,7 @@ export function Hero() {
         <StaggerItem>
           <h1 className="font-outfit font-bold text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-text-primary">
             {hero.headingPrefix}{" "}
-            <span className="text-accent">{hero.headingAccent}</span>
+            <span className="text-accent-purple">{hero.headingAccent}</span>
           </h1>
         </StaggerItem>
 
@@ -50,7 +50,7 @@ export function Hero() {
             <Magnetic strength={0.25} className="inline-block">
               <Link
                 href={hero.primaryCta.href}
-                className="inline-block rounded-xl bg-accent px-6 py-3 font-poppins text-sm font-medium text-white transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary"
+                className="inline-block rounded-full bg-accent px-8 py-3 font-poppins text-sm font-medium text-white transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary"
               >
                 {hero.primaryCta.label}
               </Link>

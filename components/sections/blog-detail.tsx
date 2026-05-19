@@ -70,7 +70,7 @@ export function BlogDetail({ post }: Props) {
         <section className="mt-20">
           <FadeIn>
             <h2 className="font-outfit font-bold text-3xl md:text-4xl leading-tight text-text-primary">
-              More <span className="text-accent">Articles</span>
+              More <span className="text-accent-purple">Articles</span>
             </h2>
           </FadeIn>
 

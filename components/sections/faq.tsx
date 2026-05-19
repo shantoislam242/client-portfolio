@@ -14,7 +14,7 @@ export function FAQ() {
         <h2 className="font-outfit font-bold text-4xl md:text-5xl text-text-primary leading-tight">
           Frequently
           <br />
-          Asked <span className="text-accent">Questions</span>
+          Asked <span className="text-accent-purple">Questions</span>
         </h2>
       </FadeIn>
 

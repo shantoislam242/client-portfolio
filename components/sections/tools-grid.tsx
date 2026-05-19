@@ -9,7 +9,7 @@ export function ToolsGrid() {
         <h2 className="font-outfit font-bold text-4xl md:text-5xl leading-tight text-text-primary">
           Top-Tier Tools for
           <br />
-          Exceptional <span className="text-accent">Results</span>
+          Exceptional <span className="text-accent-purple">Results</span>
         </h2>
       </FadeIn>
 

@@ -12,7 +12,7 @@ export function Testimonials() {
         <h2 className="font-outfit font-bold text-4xl md:text-5xl leading-tight text-text-primary">
           What Clients Say
           <br />
-          About My <span className="text-accent">Work</span>
+          About My <span className="text-accent-purple">Work</span>
         </h2>
       </FadeIn>
 

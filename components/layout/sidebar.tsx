@@ -44,7 +44,7 @@ export function Sidebar() {
 
           <Link
             href={hero.primaryCta.href}
-            className="mt-5 flex items-center justify-center rounded-xl bg-accent px-5 py-2.5 font-poppins text-sm font-medium text-white transition-all hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-card"
+            className="mt-5 flex items-center justify-center rounded-full bg-accent px-6 py-2.5 font-poppins text-sm font-medium text-white transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-card"
           >
             {hero.primaryCta.label}
           </Link>

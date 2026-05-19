@@ -9,7 +9,7 @@ export function ExperienceList() {
       <FadeIn>
         <h2 className="font-outfit font-bold text-4xl md:text-5xl leading-tight text-text-primary">
           {experienceHeading.prefix}{" "}
-          <span className="text-accent">{experienceHeading.accent}</span>
+          <span className="text-accent-purple">{experienceHeading.accent}</span>
         </h2>
       </FadeIn>
 

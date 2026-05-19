@@ -17,7 +17,7 @@ export default function Error({
   return (
     <section className="py-24 text-center">
       <h1 className="font-outfit font-bold text-4xl sm:text-5xl md:text-6xl text-text-primary">
-        Something <span className="text-accent">went wrong</span>
+        Something <span className="text-accent-purple">went wrong</span>
       </h1>
       <p className="mt-4 font-poppins text-text-secondary">
         An unexpected error occurred. Please try again.
@@ -26,7 +26,7 @@ export default function Error({
         <button
           type="button"
           onClick={() => reset()}
-          className="rounded-xl bg-accent px-6 py-3 font-poppins text-sm font-medium text-white hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          className="rounded-full bg-accent px-8 py-3 font-poppins text-sm font-medium text-white hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
           Try again
         </button>
