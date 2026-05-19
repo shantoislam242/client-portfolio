@@ -136,7 +136,7 @@ export function ProjectDetail({ project }: Props) {
               <FadeIn key={p.slug} delay={i * 0.05}>
                 <Link
                   href={`/projects/${p.slug}`}
-                  className="group block overflow-hidden rounded-2xl border border-border-subtle bg-bg-card transition-all hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,0,238,0.18)]"
+                  className="group block overflow-hidden rounded-2xl border border-border-subtle bg-bg-card transition-all hover:border-accent/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)]"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden bg-bg-card-hover">
                     <Image

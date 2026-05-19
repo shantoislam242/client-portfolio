@@ -26,7 +26,7 @@ export function BlogCard({ post }: Props) {
         <motion.span
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 rounded-2xl"
-          style={{ boxShadow: "0 0 60px 6px rgba(0, 0, 238, 0.22)" }}
+          style={{ boxShadow: "0 0 60px 6px rgba(139, 92, 246, 0.2)" }}
           variants={reduce ? undefined : cardGlow}
         />
 
