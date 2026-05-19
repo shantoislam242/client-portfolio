@@ -69,7 +69,7 @@
      Page is true black; cards lift via background color, not borders.
      Blue is the primary interaction color; purple is reserved for decorative
      last-word heading accents. */
-  --bg-primary: #000000;             /* Page background — pure black */
+  --bg-primary: #101112;             /* Page bg — matches live Framer site (not pure black) */
   --bg-card: #272829;                /* Card / surface */
   --bg-card-hover: #2C2D2F;          /* Card hover / elevated surface */
   --border-subtle: #2C2D2F;          /* Subtle dividers when needed */
@@ -81,7 +81,7 @@
   --accent-purple: #8b5cf6;          /* Decorative highlight — unified with accent */
 
   /* shadcn primitives — mapped to portfolio palette */
-  --background: #000000;
+  --background: #101112;
   --foreground: #ffffff;
   --card: #272829;
   --card-foreground: #ffffff;
