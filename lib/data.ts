@@ -388,9 +388,25 @@ export const education: EducationEntry[] = [
     period: "Jan 2009 — Jun 2013",
     href: "#",
   },
+];
+
+export const certificationHeading = {
+  prefix: "Course and",
+  accent: "Certification",
+};
+
+export type CertificationEntry = {
+  institution: string;
+  title: string;
+  description: string;
+  period: string;
+  href: string;
+};
+
+export const certifications: CertificationEntry[] = [
   {
     institution: "Creative IT Institution",
-    degree: "Professional Graphic Design — Certificate",
+    title: "Professional Graphic Design — Certificate",
     description:
       "Comprehensive professional training in social media post design, logo design, product animation, business cards, flyer design, and video editing. Performed at the institute's Jago Ucchashe alumni event in March 2022.",
     period: "Jan 2022 — Aug 2022",
