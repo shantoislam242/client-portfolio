@@ -1,7 +1,13 @@
 # Portfolio Backend — Design Spec
 
+> **⚠️ SUPERSEDED on 2026-05-20** by [2026-05-20-portfolio-backend-foundation-design.md](2026-05-20-portfolio-backend-foundation-design.md).
+> The newer spec (and the phase plan it leads to) replaces this one. Key differences: normalized schema (no JSON columns), separate `ProjectSection`/`ProjectImage`/`RelatedProject` tables, TipTap rich-text instead of `ContentBlock[]`, full admin UI scope, Resend email. Auth approach (jose + env credential) and hidden-admin policy are unchanged.
+> This document is kept for historical reference. Do not implement from it.
+
+---
+
 **Date:** 2026-05-11
-**Status:** Approved (sections 1–6)
+**Status:** Superseded
 **Goal:** Make the existing static portfolio fully dynamic with a hidden admin panel, without changing a single pixel of the frontend.
 
 ---
