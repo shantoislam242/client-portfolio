@@ -1,7 +1,7 @@
 # Portfolio Backend — Foundation (Phase 1) Design Spec
 
 **Date:** 2026-05-20
-**Status:** Draft — awaiting user review
+**Status:** Implemented (2026-05-21)
 **Supersedes:** [2026-05-11-portfolio-backend-design.md](2026-05-11-portfolio-backend-design.md) and its companion plan
 **Scope:** Phase 1 of a 4-phase backend buildout. Phases 2–4 will get their own spec/plan cycles.
 
