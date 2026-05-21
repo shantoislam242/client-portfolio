@@ -1,0 +1,397 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ─────────────────────────────────────────
+// SITE-WIDE SETTINGS (singleton)
+// ─────────────────────────────────────────
+model SiteSettings {
+  id String @id @default("singleton")
+
+  fullName         String  @default("Arifujjaman")
+  role             String  @default("Graphic & Motion Designer")
+  location         String  @default("Tejgaon, Dhaka, Bangladesh")
+  portraitUrl      String?
+  portraitPublicId String?
+  ctaButtonLabel   String  @default("Let's Talk")
+  ctaButtonLink    String  @default("/contact")
+  resumeUrl        String?
+  resumePublicId   String?
+
+  heroHeadline          String @default("Crafting Visual Stories That Move People")
+  heroSubtext           String @default("") @db.Text
+  heroPrimaryCtaLabel   String @default("Let's Talk")
+  heroPrimaryCtaLink    String @default("/contact")
+  heroSecondaryCtaLabel String @default("My Work")
+  heroSecondaryCtaLink  String @default("/projects")
+
+  statYearsExperience Int     @default(0)
+  statYearsLabel      String  @default("Years of Experience")
+  statProjects        Int     @default(0)
+  statProjectsLabel   String  @default("Projects Completed")
+  statClients         Int     @default(0)
+  statClientsLabel    String  @default("Happy Clients")
+  statsShowPlus       Boolean @default(true)
+
+  trustedByHeading String @default("Trusted by brands across South Asia and beyond")
+
+  recentProjectsHeading String @default("Recent Projects and Achievements")
+  recentProjectsLimit   Int    @default(4)
+  toolsSectionHeading   String @default("Top-Tier Tools for Exceptional Results")
+  testimonialsHeading   String @default("What Clients Say About My Work")
+  blogSectionHeading    String @default("Design Thoughts and Perspectives")
+  blogSectionLimit      Int    @default(4)
+  faqHeading            String @default("Frequently Asked Questions")
+
+  aboutPageTitle       String @default("A bit About Me")
+  aboutIntroContent    String @default("") @db.Text
+  experienceHeading    String @default("My Professional Journey")
+  educationHeading     String @default("Academic Background")
+  certificationHeading String @default("Course and Certification")
+
+  projectsPageTitle    String  @default("Projects")
+  projectsPageSubtitle String? @db.Text
+  blogPageTitle        String  @default("Blog")
+  blogPageSubtitle     String? @db.Text
+  toolsPageTitle       String  @default("Tools")
+  toolsPageSubtitle    String? @db.Text
+
+  contactPageTitle        String  @default("Let's Create Something Amazing")
+  contactPageSubtitle     String? @db.Text
+  contactEmail            String?
+  contactPhone            String?
+  contactLocationText     String?
+  contactFormNameLabel    String  @default("Name")
+  contactFormEmailLabel   String  @default("Email")
+  contactFormMessageLabel String  @default("Message")
+  contactFormSubmitLabel  String  @default("Send")
+  contactSuccessMessage   String  @default("Thanks! I'll get back to you soon.")
+
+  ctaSectionLineOne     String @default("Let's")
+  ctaSectionLineTwo     String @default("collaborate")
+  ctaSectionText        String @default("") @db.Text
+  ctaSectionButtonLabel String @default("Get in touch")
+  ctaSectionButtonLink  String @default("/contact")
+
+  footerText      String  @default("Designed & built by Arifujjaman")
+  footerShowYear  Boolean @default(true)
+  footerCopyright String?
+
+  siteName        String  @default("Arifujjaman — Graphic & Motion Designer")
+  siteDescription String  @default("") @db.Text
+  siteKeywords    String?
+  ogImage         String?
+  ogImagePublicId String?
+  faviconUrl      String?
+  faviconPublicId String?
+
+  primaryColor String  @default("#8b5cf6")
+  accentColor  String?
+
+  updatedAt DateTime @updatedAt
+}
+
+// ─────────────────────────────────────────
+// NAVIGATION
+// ─────────────────────────────────────────
+model NavItem {
+  id       String  @id @default(cuid())
+  label    String
+  href     String
+  iconKey  String  @default("link")
+  order    Int     @default(0)
+  external Boolean @default(false)
+  visible  Boolean @default(true)
+
+  @@index([order])
+}
+
+// ─────────────────────────────────────────
+// SOCIAL LINKS
+// ─────────────────────────────────────────
+model SocialLink {
+  id       String  @id @default(cuid())
+  platform String
+  label    String
+  url      String
+  iconKey  String
+  order    Int     @default(0)
+  visible  Boolean @default(true)
+
+  @@index([order])
+}
+
+// ─────────────────────────────────────────
+// PROJECTS
+// ─────────────────────────────────────────
+model Project {
+  id         String  @id @default(cuid())
+  slug       String  @unique
+  title      String
+  shortLabel String?
+
+  year     String?
+  client   String?
+  services String[]
+  role     String?
+  liveUrl  String?
+
+  coverImageUrl String
+  coverPublicId String
+
+  excerpt      String  @db.Text
+  cardImageUrl String?
+  cardPublicId String?
+
+  introContent String? @db.Text
+
+  sections       ProjectSection[]
+  galleryHeading String           @default("Selected Visuals")
+  galleryImages  ProjectImage[]
+
+  relatedHeading  String           @default("More Projects")
+  relatedProjects RelatedProject[] @relation("source")
+  relatedTo       RelatedProject[] @relation("related")
+
+  featured  Boolean @default(false)
+  published Boolean @default(false)
+  order     Int     @default(0)
+
+  metaTitle       String?
+  metaDescription String?
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  publishedAt DateTime?
+
+  @@index([published, order])
+  @@index([featured, order])
+}
+
+model ProjectSection {
+  id        String  @id @default(cuid())
+  heading   String
+  content   String  @db.Text
+  order     Int     @default(0)
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId, order])
+}
+
+model ProjectImage {
+  id        String  @id @default(cuid())
+  url       String
+  publicId  String
+  alt       String?
+  caption   String?
+  order     Int     @default(0)
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId, order])
+}
+
+model RelatedProject {
+  id        String  @id @default(cuid())
+  sourceId  String
+  relatedId String
+  order     Int     @default(0)
+  source    Project @relation("source", fields: [sourceId], references: [id], onDelete: Cascade)
+  related   Project @relation("related", fields: [relatedId], references: [id], onDelete: Cascade)
+
+  @@unique([sourceId, relatedId])
+}
+
+// ─────────────────────────────────────────
+// BLOG
+// ─────────────────────────────────────────
+model BlogPost {
+  id       String  @id @default(cuid())
+  slug     String  @unique
+  title    String
+  subtitle String?
+  excerpt  String  @db.Text
+  content  String  @db.Text
+
+  coverImageUrl String
+  coverPublicId String
+
+  category        String?
+  tags            String[]
+  readTimeMinutes Int      @default(5)
+  author          String?
+
+  published Boolean @default(false)
+  featured  Boolean @default(false)
+
+  metaTitle       String?
+  metaDescription String?
+
+  views Int @default(0)
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  publishedAt DateTime?
+
+  @@index([published, publishedAt])
+}
+
+// ─────────────────────────────────────────
+// TOOLS
+// ─────────────────────────────────────────
+model Tool {
+  id          String  @id @default(cuid())
+  name        String
+  description String?
+  category    String?
+
+  iconUrl         String?
+  iconPublicId    String?
+  iconExternalUrl String?
+
+  proficiency Int     @default(80)
+  order       Int     @default(0)
+  showOnHome  Boolean @default(true)
+  visible     Boolean @default(true)
+
+  createdAt DateTime @default(now())
+
+  @@index([order])
+}
+
+// ─────────────────────────────────────────
+// TESTIMONIALS
+// ─────────────────────────────────────────
+model Testimonial {
+  id             String   @id @default(cuid())
+  name           String
+  role           String?
+  company        String?
+  content        String   @db.Text
+  avatarUrl      String?
+  avatarPublicId String?
+  rating         Int      @default(5)
+  featured       Boolean  @default(false)
+  order          Int      @default(0)
+  visible        Boolean  @default(true)
+  createdAt      DateTime @default(now())
+
+  @@index([order])
+}
+
+// ─────────────────────────────────────────
+// CLIENT LOGOS
+// ─────────────────────────────────────────
+model ClientLogo {
+  id         String   @id @default(cuid())
+  name       String
+  logoUrl    String
+  publicId   String
+  websiteUrl String?
+  order      Int      @default(0)
+  visible    Boolean  @default(true)
+  createdAt  DateTime @default(now())
+
+  @@index([order])
+}
+
+// ─────────────────────────────────────────
+// EXPERIENCE
+// ─────────────────────────────────────────
+model Experience {
+  id           String   @id @default(cuid())
+  company      String
+  role         String
+  description  String   @db.Text
+  startDate    String
+  endDate      String?
+  current      Boolean  @default(false)
+  companyUrl   String?
+  logoUrl      String?
+  logoPublicId String?
+  order        Int      @default(0)
+  visible      Boolean  @default(true)
+  createdAt    DateTime @default(now())
+
+  @@index([order])
+}
+
+// ─────────────────────────────────────────
+// EDUCATION
+// ─────────────────────────────────────────
+model Education {
+  id             String   @id @default(cuid())
+  institution    String
+  degree         String
+  description    String?  @db.Text
+  startDate      String
+  endDate        String?
+  current        Boolean  @default(false)
+  institutionUrl String?
+  logoUrl        String?
+  logoPublicId   String?
+  order          Int      @default(0)
+  visible        Boolean  @default(true)
+  createdAt      DateTime @default(now())
+
+  @@index([order])
+}
+
+// ─────────────────────────────────────────
+// CERTIFICATIONS
+// ─────────────────────────────────────────
+model Certification {
+  id            String   @id @default(cuid())
+  institution   String
+  title         String
+  description   String?  @db.Text
+  startDate     String
+  endDate       String?
+  credentialUrl String?
+  logoUrl       String?
+  logoPublicId  String?
+  order         Int      @default(0)
+  visible       Boolean  @default(true)
+  createdAt     DateTime @default(now())
+
+  @@index([order])
+}
+
+// ─────────────────────────────────────────
+// FAQ
+// ─────────────────────────────────────────
+model FAQ {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String   @db.Text
+  category  String?
+  order     Int      @default(0)
+  visible   Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  @@index([order])
+}
+
+// ─────────────────────────────────────────
+// CONTACT SUBMISSIONS  (write path lands Phase 4)
+// ─────────────────────────────────────────
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  replied   Boolean  @default(false)
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  @@index([read, createdAt])
+}
