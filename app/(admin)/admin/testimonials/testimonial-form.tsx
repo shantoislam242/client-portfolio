@@ -48,7 +48,7 @@ export function TestimonialForm({ initial, action, submitLabel }: TestimonialFor
         <TextAreaField name="content" label="Quote" required rows={5} defaultValue={initial?.content} error={err("content")} />
         <ImageUploader folder="testimonials" name="avatarUrl" publicIdName="avatarPublicId" initialUrl={initial?.avatarUrl} initialPublicId={initial?.avatarPublicId} label="Avatar" help="Recommended: 256×256px square (will display as circle)" />
         <NumberField name="rating" label="Rating (1–5)" min={1} max={5} defaultValue={initial?.rating ?? 5} error={err("rating")} />
-        <NumberField name="order" label="Order" min={0} defaultValue={initial?.order ?? 0} error={err("order")} />
+        <input type="hidden" name="order" value={initial?.order ?? 0} />
         <BooleanField name="featured" label="Featured" defaultValue={initial?.featured ?? false} />
         <BooleanField name="visible" label="Visible" defaultValue={initial?.visible ?? true} />
       </FormSection>

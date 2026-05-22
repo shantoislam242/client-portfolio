@@ -1,12 +1,18 @@
 import Link from "next/link";
 import { listEducation } from "@/lib/db/education";
 import { deleteEducation, toggleVisibleEducation } from "@/actions/education";
-import { DataTable } from "@/components/admin/data-table";
+import { reorderEducation } from "@/actions/reorder";
+import { SortableList, SortableRow } from "@/components/admin/sortable-list";
+import { DragHandle } from "@/components/admin/drag-handle";
+import { DeleteButton } from "@/components/admin/delete-button";
+import { VisibleToggle } from "@/components/admin/visible-toggle";
 
 export const metadata = { title: "Education — admin" };
 
 export default async function EducationListPage() {
   const rows = await listEducation();
+  const ids = rows.map((r) => r.id);
+
   return (
     <div>
       <header className="flex items-center justify-between mb-6">
@@ -18,18 +24,46 @@ export default async function EducationListPage() {
           + New education
         </Link>
       </header>
-      <DataTable
-        rows={rows}
-        columns={[
-          { key: "institution", label: "Institution" },
-          { key: "degree", label: "Degree" },
-          { key: "startDate", label: "Start" },
-          { key: "endDate", label: "End", render: (r) => r.current ? "Present" : (r.endDate ?? "—") },
-        ]}
-        editHref={(r) => `/admin/education/${r.id}`}
-        deleteAction={deleteEducation}
-        toggleVisibleAction={toggleVisibleEducation}
-      />
+
+      {rows.length === 0 ? (
+        <p className="text-sm text-muted-foreground">No education yet.</p>
+      ) : (
+        <SortableList ids={ids} reorderAction={reorderEducation}>
+          {(orderedIds) =>
+            orderedIds.map((id) => {
+              const r = rows.find((x) => x.id === id);
+              if (!r) return null;
+              return (
+                <SortableRow key={id} id={id}>
+                  {({ listeners, attributes }) => (
+                    <div className="flex items-center gap-3 border border-border rounded-md bg-card px-3 py-2 mb-2">
+                      <DragHandle listeners={listeners} {...attributes} />
+                      <div className="flex-1 min-w-0">
+                        <div className="font-medium truncate">{r.institution}</div>
+                        <div className="text-xs text-muted-foreground truncate">
+                          {`${r.degree} · ${r.startDate} – ${r.current ? "Present" : (r.endDate ?? "—")}`}
+                        </div>
+                      </div>
+                      <VisibleToggle
+                        id={r.id}
+                        visible={r.visible}
+                        action={toggleVisibleEducation}
+                      />
+                      <Link
+                        href={`/admin/education/${r.id}`}
+                        className="text-accent-purple hover:underline text-sm"
+                      >
+                        Edit
+                      </Link>
+                      <DeleteButton id={r.id} action={deleteEducation} />
+                    </div>
+                  )}
+                </SortableRow>
+              );
+            })
+          }
+        </SortableList>
+      )}
     </div>
   );
 }

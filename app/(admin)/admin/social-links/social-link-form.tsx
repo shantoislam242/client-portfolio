@@ -2,7 +2,6 @@
 import { useActionState } from "react";
 import { TextField } from "@/components/admin/field/text-field";
 import { UrlField } from "@/components/admin/field/url-field";
-import { NumberField } from "@/components/admin/field/number-field";
 import { BooleanField } from "@/components/admin/field/boolean-field";
 import { FormSection } from "@/components/admin/form-section";
 import type { SocialLinkFormState } from "@/actions/social-links";
@@ -41,7 +40,7 @@ export function SocialLinkForm({ initial, action, submitLabel }: SocialLinkFormP
         <TextField name="label" label="Label" required defaultValue={initial?.label} error={err("label")} />
         <UrlField name="url" label="URL" required defaultValue={initial?.url} error={err("url")} />
         <TextField name="iconKey" label="Icon key" required defaultValue={initial?.iconKey} error={err("iconKey")} />
-        <NumberField name="order" label="Order" min={0} defaultValue={initial?.order ?? 0} error={err("order")} />
+        <input type="hidden" name="order" value={initial?.order ?? 0} />
         <BooleanField name="visible" label="Visible" defaultValue={initial?.visible ?? true} />
       </FormSection>
     </form>

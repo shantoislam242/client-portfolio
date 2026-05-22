@@ -86,13 +86,7 @@ export function ToolForm({ initial, action, submitLabel }: ToolFormProps) {
           max={100}
           error={err("proficiency")}
         />
-        <NumberField
-          name="order"
-          label="Order"
-          defaultValue={initial?.order ?? 0}
-          min={0}
-          error={err("order")}
-        />
+        <input type="hidden" name="order" value={initial?.order ?? 0} />
         <BooleanField
           name="showOnHome"
           label="Show on home page"

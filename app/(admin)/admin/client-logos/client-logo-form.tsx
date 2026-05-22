@@ -1,7 +1,6 @@
 "use client";
 import { useActionState } from "react";
 import { TextField } from "@/components/admin/field/text-field";
-import { NumberField } from "@/components/admin/field/number-field";
 import { BooleanField } from "@/components/admin/field/boolean-field";
 import { UrlField } from "@/components/admin/field/url-field";
 import { ImageUploader } from "@/components/admin/image-uploader";
@@ -61,13 +60,7 @@ export function ClientLogoForm({ initial, action, submitLabel }: ClientLogoFormP
           defaultValue={initial?.websiteUrl}
           error={err("websiteUrl")}
         />
-        <NumberField
-          name="order"
-          label="Order"
-          min={0}
-          defaultValue={initial?.order ?? 0}
-          error={err("order")}
-        />
+        <input type="hidden" name="order" value={initial?.order ?? 0} />
         <BooleanField
           name="visible"
           label="Visible"

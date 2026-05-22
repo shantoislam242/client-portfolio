@@ -2,7 +2,6 @@
 import { useActionState } from "react";
 import { TextField } from "@/components/admin/field/text-field";
 import { TextAreaField } from "@/components/admin/field/text-area-field";
-import { NumberField } from "@/components/admin/field/number-field";
 import { BooleanField } from "@/components/admin/field/boolean-field";
 import { UrlField } from "@/components/admin/field/url-field";
 import { ImageUploader } from "@/components/admin/image-uploader";
@@ -50,7 +49,7 @@ export function CertificationForm({ initial, action, submitLabel }: Certificatio
         <TextField name="endDate" label="End date" defaultValue={initial?.endDate} error={err("endDate")} />
         <UrlField name="credentialUrl" label="Credential URL" defaultValue={initial?.credentialUrl} error={err("credentialUrl")} />
         <ImageUploader folder="certifications" name="logoUrl" publicIdName="logoPublicId" initialUrl={initial?.logoUrl} initialPublicId={initial?.logoPublicId} label="Logo" help="Recommended: 256×256px square (transparent PNG)" />
-        <NumberField name="order" label="Order" min={0} defaultValue={initial?.order ?? 0} error={err("order")} />
+        <input type="hidden" name="order" value={initial?.order ?? 0} />
         <BooleanField name="visible" label="Visible" defaultValue={initial?.visible ?? true} />
       </FormSection>
     </form>

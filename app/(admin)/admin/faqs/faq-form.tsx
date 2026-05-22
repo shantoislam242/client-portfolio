@@ -2,7 +2,6 @@
 import { useActionState } from "react";
 import { TextField } from "@/components/admin/field/text-field";
 import { TextAreaField } from "@/components/admin/field/text-area-field";
-import { NumberField } from "@/components/admin/field/number-field";
 import { BooleanField } from "@/components/admin/field/boolean-field";
 import { FormSection } from "@/components/admin/form-section";
 import type { FaqFormState } from "@/actions/faqs";
@@ -39,7 +38,7 @@ export function FaqForm({ initial, action, submitLabel }: FaqFormProps) {
         <TextField name="question" label="Question" required defaultValue={initial?.question} error={err("question")} />
         <TextAreaField name="answer" label="Answer" required rows={4} defaultValue={initial?.answer} error={err("answer")} />
         <TextField name="category" label="Category" defaultValue={initial?.category ?? undefined} error={err("category")} />
-        <NumberField name="order" label="Order" min={0} defaultValue={initial?.order ?? 0} error={err("order")} />
+        <input type="hidden" name="order" value={initial?.order ?? 0} />
         <BooleanField name="visible" label="Visible" defaultValue={initial?.visible ?? true} />
       </FormSection>
     </form>
