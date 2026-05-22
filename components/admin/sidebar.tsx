@@ -21,6 +21,7 @@ const CONTENT: NavLink[] = [
   { href: "/admin/testimonials", label: "Testimonials" },
   { href: "/admin/faqs", label: "FAQs" },
   { href: "/admin/client-logos", label: "Client logos" },
+  { href: "/admin/blog-posts", label: "Blog posts" },
 ];
 
 const ABOUT: NavLink[] = [

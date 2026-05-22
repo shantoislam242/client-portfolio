@@ -74,6 +74,7 @@ export default async function DashboardPage() {
           <Card label="Testimonials" count={testimonials} href="/admin/testimonials" />
           <Card label="FAQs" count={faqs} href="/admin/faqs" />
           <Card label="Client logos" count={clientLogos} href="/admin/client-logos" />
+          <Card label="Blog posts" count={blogPosts} href="/admin/blog-posts" />
         </div>
       </section>
 
@@ -109,7 +110,7 @@ export default async function DashboardPage() {
 
       <section className="mb-8">
         <h2 className="text-sm uppercase tracking-wider text-muted-foreground mb-3">
-          Deferred (Phase 2B)
+          Deferred (Phase 2C)
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 opacity-60">
           <div className="rounded-md border border-border bg-card p-4">
@@ -117,12 +118,6 @@ export default async function DashboardPage() {
               Projects
             </div>
             <div className="text-2xl font-semibold mt-1">{projects}</div>
-          </div>
-          <div className="rounded-md border border-border bg-card p-4">
-            <div className="text-xs uppercase tracking-wider text-muted-foreground">
-              Blog posts
-            </div>
-            <div className="text-2xl font-semibold mt-1">{blogPosts}</div>
           </div>
         </div>
       </section>
