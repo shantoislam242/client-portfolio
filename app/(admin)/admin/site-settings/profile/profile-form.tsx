@@ -40,7 +40,7 @@ export function ProfileForm({ initial }: ProfileFormProps) {
         <TextField name="fullName" label="Full name" required defaultValue={initial.fullName} error={err("fullName")} />
         <TextField name="role" label="Role" required defaultValue={initial.role} error={err("role")} />
         <TextField name="location" label="Location" required defaultValue={initial.location} error={err("location")} />
-        <ImageUploader folder="site" name="portraitUrl" publicIdName="portraitPublicId" initialUrl={initial.portraitUrl} initialPublicId={initial.portraitPublicId} label="Portrait" />
+        <ImageUploader folder="site" name="portraitUrl" publicIdName="portraitPublicId" initialUrl={initial.portraitUrl} initialPublicId={initial.portraitPublicId} label="Portrait" help="Recommended: 800×1000px (portrait, 4:5 aspect)" />
         <TextField name="ctaButtonLabel" label="Sidebar CTA label" required defaultValue={initial.ctaButtonLabel} error={err("ctaButtonLabel")} />
         <TextField name="ctaButtonLink" label="Sidebar CTA link" required defaultValue={initial.ctaButtonLink} error={err("ctaButtonLink")} />
         <UrlField name="resumeUrl" label="Resume URL" defaultValue={initial.resumeUrl} error={err("resumeUrl")} />

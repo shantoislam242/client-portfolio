@@ -38,8 +38,8 @@ export function SeoForm({ initial }: SeoFormProps) {
         <TextField name="siteName" label="Site name" required defaultValue={initial.siteName} error={err("siteName")} />
         <TextAreaField name="siteDescription" label="Site description (meta)" rows={3} defaultValue={initial.siteDescription} error={err("siteDescription")} />
         <TextField name="siteKeywords" label="Meta keywords (comma-separated)" defaultValue={initial.siteKeywords} error={err("siteKeywords")} />
-        <ImageUploader folder="site" name="ogImage" publicIdName="ogImagePublicId" initialUrl={initial.ogImage} initialPublicId={initial.ogImagePublicId} label="OG image (1200×630)" />
-        <ImageUploader folder="site" name="faviconUrl" publicIdName="faviconPublicId" initialUrl={initial.faviconUrl} initialPublicId={initial.faviconPublicId} label="Favicon" />
+        <ImageUploader folder="site" name="ogImage" publicIdName="ogImagePublicId" initialUrl={initial.ogImage} initialPublicId={initial.ogImagePublicId} label="OG image" help="Recommended: 1200×630px (Open Graph standard, JPG or PNG)" />
+        <ImageUploader folder="site" name="faviconUrl" publicIdName="faviconPublicId" initialUrl={initial.faviconUrl} initialPublicId={initial.faviconPublicId} label="Favicon" help="Recommended: 512×512px PNG (browsers auto-scale to 16/32/192px)" />
       </div>
       <div className="mt-6 max-w-2xl">
         <SubmitButton label="Save" />

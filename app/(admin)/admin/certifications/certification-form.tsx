@@ -49,7 +49,7 @@ export function CertificationForm({ initial, action, submitLabel }: Certificatio
         <TextField name="startDate" label="Start date" required defaultValue={initial?.startDate} error={err("startDate")} />
         <TextField name="endDate" label="End date" defaultValue={initial?.endDate} error={err("endDate")} />
         <UrlField name="credentialUrl" label="Credential URL" defaultValue={initial?.credentialUrl} error={err("credentialUrl")} />
-        <ImageUploader folder="certifications" name="logoUrl" publicIdName="logoPublicId" initialUrl={initial?.logoUrl} initialPublicId={initial?.logoPublicId} label="Logo" />
+        <ImageUploader folder="certifications" name="logoUrl" publicIdName="logoPublicId" initialUrl={initial?.logoUrl} initialPublicId={initial?.logoPublicId} label="Logo" help="Recommended: 256×256px square (transparent PNG)" />
         <NumberField name="order" label="Order" min={0} defaultValue={initial?.order ?? 0} error={err("order")} />
         <BooleanField name="visible" label="Visible" defaultValue={initial?.visible ?? true} />
       </FormSection>

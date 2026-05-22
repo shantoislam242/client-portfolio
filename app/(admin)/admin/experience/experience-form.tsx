@@ -51,7 +51,7 @@ export function ExperienceForm({ initial, action, submitLabel }: ExperienceFormP
         <TextField name="endDate" label="End date (leave blank if current)" placeholder="Dec 2025" defaultValue={initial?.endDate} error={err("endDate")} />
         <BooleanField name="current" label="Currently here" defaultValue={initial?.current ?? false} />
         <UrlField name="companyUrl" label="Company URL" defaultValue={initial?.companyUrl} error={err("companyUrl")} />
-        <ImageUploader folder="experience" name="logoUrl" publicIdName="logoPublicId" initialUrl={initial?.logoUrl} initialPublicId={initial?.logoPublicId} label="Logo" />
+        <ImageUploader folder="experience" name="logoUrl" publicIdName="logoPublicId" initialUrl={initial?.logoUrl} initialPublicId={initial?.logoPublicId} label="Logo" help="Recommended: 256×256px square (transparent PNG)" />
         <NumberField name="order" label="Order" min={0} defaultValue={initial?.order ?? 0} error={err("order")} />
         <BooleanField name="visible" label="Visible" defaultValue={initial?.visible ?? true} />
       </FormSection>

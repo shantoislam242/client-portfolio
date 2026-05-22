@@ -51,7 +51,7 @@ export function EducationForm({ initial, action, submitLabel }: EducationFormPro
         <TextField name="endDate" label="End date" defaultValue={initial?.endDate} error={err("endDate")} />
         <BooleanField name="current" label="Currently here" defaultValue={initial?.current ?? false} />
         <UrlField name="institutionUrl" label="Institution URL" defaultValue={initial?.institutionUrl} error={err("institutionUrl")} />
-        <ImageUploader folder="education" name="logoUrl" publicIdName="logoPublicId" initialUrl={initial?.logoUrl} initialPublicId={initial?.logoPublicId} label="Logo" />
+        <ImageUploader folder="education" name="logoUrl" publicIdName="logoPublicId" initialUrl={initial?.logoUrl} initialPublicId={initial?.logoPublicId} label="Logo" help="Recommended: 256×256px square (transparent PNG)" />
         <NumberField name="order" label="Order" min={0} defaultValue={initial?.order ?? 0} error={err("order")} />
         <BooleanField name="visible" label="Visible" defaultValue={initial?.visible ?? true} />
       </FormSection>

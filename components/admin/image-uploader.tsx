@@ -23,6 +23,7 @@ type ImageUploaderProps = {
   initialPublicId?: string | null;
   label: string;
   required?: boolean;
+  help?: string;
 };
 
 type State = {
@@ -41,6 +42,7 @@ export function ImageUploader({
   initialPublicId,
   label,
   required,
+  help,
 }: ImageUploaderProps) {
   const fileInput = useRef<HTMLInputElement>(null);
   const [state, setState] = useState<State>({
@@ -146,6 +148,7 @@ export function ImageUploader({
         }}
       />
 
+      {help && <p className="text-xs text-muted-foreground mt-1">{help}</p>}
       {state.error && <p className="text-sm text-red-400 mt-1">{state.error}</p>}
     </div>
   );

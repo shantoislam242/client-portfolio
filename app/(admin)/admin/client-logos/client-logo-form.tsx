@@ -53,6 +53,7 @@ export function ClientLogoForm({ initial, action, submitLabel }: ClientLogoFormP
           initialPublicId={initial?.publicId}
           label="Logo"
           required
+          help="Recommended: 400×120px (transparent PNG, ~3:1 aspect)"
         />
         <UrlField
           name="websiteUrl"

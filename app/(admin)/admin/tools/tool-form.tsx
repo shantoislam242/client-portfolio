@@ -70,6 +70,7 @@ export function ToolForm({ initial, action, submitLabel }: ToolFormProps) {
           initialUrl={initial?.iconUrl}
           initialPublicId={initial?.iconPublicId}
           label="Icon (uploaded)"
+          help="Recommended: 128×128px (transparent PNG)"
         />
         <UrlField
           name="iconExternalUrl"
