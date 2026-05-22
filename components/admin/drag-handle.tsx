@@ -1,18 +1,18 @@
 "use client";
-import type { HTMLAttributes } from "react";
+import { useRowHandle } from "./sortable-list";
 
-type DragHandleProps = HTMLAttributes<HTMLButtonElement> & {
-  listeners?: Record<string, (e: unknown) => void>;
-};
+export function DragHandle() {
+  const handle = useRowHandle();
+  const listeners = handle?.listeners ?? {};
+  const attributes = handle?.attributes ?? {};
 
-export function DragHandle({ listeners, ...rest }: DragHandleProps) {
   return (
     <button
       type="button"
       aria-label="Drag to reorder"
       className="touch-none cursor-grab active:cursor-grabbing select-none px-1.5 py-1 text-muted-foreground hover:text-foreground rounded transition"
       {...listeners}
-      {...rest}
+      {...attributes}
     >
       <svg
         width="14"

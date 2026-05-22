@@ -1,5 +1,5 @@
 "use client";
-import { useState, useTransition } from "react";
+import { createContext, useContext, useState, useTransition } from "react";
 import {
   DndContext,
   closestCenter,
@@ -19,22 +19,38 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { toast } from "sonner";
 
+// Context to pass drag listeners from SortableRow down to <DragHandle />
+type Handle = {
+  listeners: Record<string, (e: unknown) => void> | undefined;
+  attributes: Record<string, unknown>;
+};
+const RowHandleContext = createContext<Handle | null>(null);
+
+export function useRowHandle(): Handle | null {
+  return useContext(RowHandleContext);
+}
+
+type SortableItem = { id: string; content: React.ReactNode };
+
 type SortableListProps = {
-  ids: string[];
+  items: SortableItem[];
   reorderAction: (ids: string[]) => Promise<unknown>;
-  children: (orderedIds: string[]) => React.ReactNode;
 };
 
-export function SortableList({ ids, reorderAction, children }: SortableListProps) {
-  const [order, setOrder] = useState(ids);
-  const [lastIds, setLastIds] = useState(ids);
+export function SortableList({ items, reorderAction }: SortableListProps) {
+  const initialIds = items.map((i) => i.id);
+  const [order, setOrder] = useState(initialIds);
+  const [lastInitial, setLastInitial] = useState(initialIds);
   const [, startTransition] = useTransition();
 
-  // Adjust state during render when parent ids prop changes
-  // (delete, fresh fetch). Safe per React docs — not in an effect.
-  if (ids !== lastIds) {
-    setLastIds(ids);
-    setOrder(ids);
+  // Adjust state during render when items prop changes (after delete or fresh fetch).
+  // Compare lengths + element-wise — array identity isn't stable on Server re-renders.
+  const initialChanged =
+    initialIds.length !== lastInitial.length ||
+    initialIds.some((id, i) => id !== lastInitial[i]);
+  if (initialChanged) {
+    setLastInitial(initialIds);
+    setOrder(initialIds);
   }
 
   const sensors = useSensors(
@@ -52,30 +68,30 @@ export function SortableList({ ids, reorderAction, children }: SortableListProps
       try {
         await reorderAction(next);
       } catch {
-        setOrder(ids); // revert
+        setOrder(initialIds);
         toast.error("Reorder failed");
       }
     });
   }
 
   return (
-    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+    <DndContext
+      sensors={sensors}
+      collisionDetection={closestCenter}
+      onDragEnd={handleDragEnd}
+    >
       <SortableContext items={order} strategy={verticalListSortingStrategy}>
-        {children(order)}
+        {order.map((id) => {
+          const item = items.find((i) => i.id === id);
+          if (!item) return null;
+          return <InnerRow key={id} id={id} content={item.content} />;
+        })}
       </SortableContext>
     </DndContext>
   );
 }
 
-type SortableRowProps = {
-  id: string;
-  children: (handle: {
-    listeners: Record<string, (e: unknown) => void> | undefined;
-    attributes: Record<string, unknown>;
-  }) => React.ReactNode;
-};
-
-export function SortableRow({ id, children }: SortableRowProps) {
+function InnerRow({ id, content }: { id: string; content: React.ReactNode }) {
   const {
     attributes,
     listeners,
@@ -92,12 +108,16 @@ export function SortableRow({ id, children }: SortableRowProps) {
     zIndex: isDragging ? 10 : "auto",
   };
 
+  const handle: Handle = {
+    listeners: listeners as unknown as Handle["listeners"],
+    attributes: attributes as unknown as Handle["attributes"],
+  };
+
   return (
-    <div ref={setNodeRef} style={style} className={isDragging ? "shadow-lg" : ""}>
-      {children({
-        listeners: listeners as Record<string, (e: unknown) => void> | undefined,
-        attributes: attributes as unknown as Record<string, unknown>,
-      })}
-    </div>
+    <RowHandleContext.Provider value={handle}>
+      <div ref={setNodeRef} style={style} className={isDragging ? "shadow-lg" : ""}>
+        {content}
+      </div>
+    </RowHandleContext.Provider>
   );
 }
