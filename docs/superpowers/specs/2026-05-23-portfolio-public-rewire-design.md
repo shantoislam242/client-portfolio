@@ -1,7 +1,7 @@
 # Portfolio Public Site Rewire — Phase 3 Design Spec
 
 **Date:** 2026-05-23
-**Status:** Draft — awaiting user review
+**Status:** Implemented (2026-05-23)
 **Scope:** Phase 3 of the 4-phase backend buildout. Rewires every public-site page and section component to read from the database instead of `lib/data.ts`. After this phase, admin edits land on the public site.
 **Predecessor:** Phase 2C (Project admin)
 **Successor:** Phase 4 (contact form submission + Resend + sitemap + robots)
