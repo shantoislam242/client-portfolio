@@ -1,5 +1,5 @@
 "use client";
-import { useState, useTransition, useEffect } from "react";
+import { useState, useTransition } from "react";
 import {
   DndContext,
   closestCenter,
@@ -27,12 +27,15 @@ type SortableListProps = {
 
 export function SortableList({ ids, reorderAction, children }: SortableListProps) {
   const [order, setOrder] = useState(ids);
+  const [lastIds, setLastIds] = useState(ids);
   const [, startTransition] = useTransition();
 
-  // Sync when parent ids change (after a delete or fresh fetch).
-  useEffect(() => {
+  // Adjust state during render when parent ids prop changes
+  // (delete, fresh fetch). Safe per React docs — not in an effect.
+  if (ids !== lastIds) {
+    setLastIds(ids);
     setOrder(ids);
-  }, [ids]);
+  }
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 4 } }),

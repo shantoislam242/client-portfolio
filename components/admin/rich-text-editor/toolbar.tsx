@@ -124,7 +124,7 @@ export function Toolbar({ editor }: ToolbarProps) {
           active={editor.isActive("blockquote")}
           title="Blockquote"
         >
-          ""
+          {'""'}
         </Btn>
         <Btn
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
