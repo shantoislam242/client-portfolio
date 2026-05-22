@@ -22,14 +22,14 @@ export async function CompaniesStrip() {
           {[...logos, ...logos].map((logo, i) => (
             <div
               key={`${i}-${logo.id}`}
-              className="relative h-7 w-auto shrink-0"
+              className="relative h-10 w-auto shrink-0"
             >
               <Image
-                src={cldUrl(logo.logoUrl, { width: 120 })}
+                src={cldUrl(logo.logoUrl, { width: 200 })}
                 alt={logo.name}
-                width={120}
-                height={28}
-                className="h-7 w-auto object-contain opacity-70"
+                width={200}
+                height={40}
+                className="h-10 w-auto object-contain opacity-70"
                 aria-hidden="true"
                 unoptimized
               />
