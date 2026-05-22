@@ -19,13 +19,21 @@ type IconComponent =
   | ComponentType<SVGProps<SVGSVGElement>>;
 
 const ICONS: Record<string, IconComponent> = {
-  // Nav (Lucide)
+  // Semantic nav keys
   home: Home,
   about: Briefcase,
   projects: Folder,
   tools: Wrench,
   blog: SquarePen,
   contact: Mail,
+
+  // Lucide component-name aliases (Phase 1 seed wrote these via displayName)
+  house: Home,
+  briefcase: Briefcase,
+  folder: Folder,
+  wrench: Wrench,
+  squarepen: SquarePen,
+  mail: Mail,
 
   // Socials (custom)
   behance: BehanceIcon,
