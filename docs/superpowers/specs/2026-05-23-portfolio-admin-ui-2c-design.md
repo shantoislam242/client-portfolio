@@ -1,7 +1,7 @@
 # Portfolio Admin UI — Phase 2C Design Spec
 
 **Date:** 2026-05-23
-**Status:** Draft — awaiting user review
+**Status:** Implemented (2026-05-23)
 **Scope:** Phase 2C of the 4-phase backend buildout. Builds on Phase 2A (admin foundation) and [Phase 2B primitives](./2026-05-22-portfolio-admin-ui-2b-design.md) (RichTextEditor + SortableList + ImageUploader). Phase 3 (public-site rewire) is a separate spec.
 **Predecessor:** Phase 2B (TipTap + drag-reorder + BlogPost CRUD)
 **Successor:** Phase 3 (public site reads from DB instead of `lib/data.ts`)
