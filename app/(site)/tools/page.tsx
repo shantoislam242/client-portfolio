@@ -5,5 +5,5 @@ export const metadata = {
 };
 
 export default function ToolsPage() {
-  return <ToolsGrid />;
+  return <ToolsGrid mode="page" />;
 }
