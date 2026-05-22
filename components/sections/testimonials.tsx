@@ -1,18 +1,32 @@
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { testimonials } from "@/lib/data";
+import { getSiteSettings } from "@/lib/db/site-settings";
+import { listTestimonials } from "@/lib/db/testimonials";
+import { cldUrl } from "@/lib/cloudinary/delivery";
 import { FadeIn } from "@/components/motion/fade-in";
 
-export function Testimonials() {
+export async function Testimonials() {
+  const [s, allTestimonials] = await Promise.all([
+    getSiteSettings(),
+    listTestimonials(),
+  ]);
+
+  const testimonials = allTestimonials.filter((t) => t.visible);
   const t = testimonials[0];
+
+  if (!t) return null;
+
+  const headingWords = s.testimonialsHeading.split(" ");
+  const headingAccent = headingWords[headingWords.length - 1];
+  const headingPrefix = headingWords.slice(0, -1).join(" ");
 
   return (
     <section className="py-16 md:py-24">
       <FadeIn>
         <h2 className="font-outfit font-bold text-4xl md:text-5xl leading-tight text-text-primary">
-          What Clients Say
+          {headingPrefix}
           <br />
-          About My <span className="text-accent-purple">Work</span>
+          <span className="text-accent-purple">{headingAccent}</span>
         </h2>
       </FadeIn>
 
@@ -39,25 +53,29 @@ export function Testimonials() {
         <article className="mt-6 rounded-2xl border border-border-subtle bg-bg-card p-6">
           <header className="flex items-center gap-3">
             <div className="relative h-10 w-10 overflow-hidden rounded-full bg-bg-card-hover">
-              <Image
-                src={t.avatar}
-                alt={t.name}
-                fill
-                sizes="40px"
-                className="object-cover"
-              />
+              {t.avatarUrl ? (
+                <Image
+                  src={cldUrl(t.avatarUrl, { width: 80 })}
+                  alt={t.name}
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
+              ) : (
+                <div className="h-10 w-10 rounded-full bg-bg-card-hover" />
+              )}
             </div>
             <div>
               <div className="font-outfit font-bold text-base text-text-primary">
                 {t.name}
               </div>
               <div className="font-poppins text-xs text-text-muted">
-                {t.role}
+                {[t.role, t.company].filter(Boolean).join(", ")}
               </div>
             </div>
           </header>
           <blockquote className="mt-4 font-poppins text-sm text-text-secondary">
-            {t.quote}
+            {t.content}
           </blockquote>
         </article>
       </FadeIn>

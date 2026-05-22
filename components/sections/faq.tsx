@@ -4,17 +4,30 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { faqs } from "@/lib/data";
+import { getSiteSettings } from "@/lib/db/site-settings";
+import { listFaqs } from "@/lib/db/faqs";
 import { FadeIn } from "@/components/motion/fade-in";
 
-export function FAQ() {
+type Props = {
+  mode?: "home" | "page";
+};
+
+export async function FAQ({ mode = "home" }: Props) {
+  const [s, allFaqs] = await Promise.all([getSiteSettings(), listFaqs()]);
+
+  const faqs = allFaqs.filter((f) => f.visible);
+
+  const headingWords = s.faqHeading.split(" ");
+  const headingAccent = headingWords[headingWords.length - 1];
+  const headingPrefix = headingWords.slice(0, -1).join(" ");
+
   return (
     <section className="py-16 md:py-24">
       <FadeIn>
         <h2 className="font-outfit font-bold text-4xl md:text-5xl text-text-primary leading-tight">
-          Frequently
+          {headingPrefix}
           <br />
-          Asked <span className="text-accent-purple">Questions</span>
+          <span className="text-accent-purple">{headingAccent}</span>
         </h2>
       </FadeIn>
 
