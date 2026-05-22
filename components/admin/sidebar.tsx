@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { logoutAction } from "@/actions/auth";
+import { SidebarLink } from "./sidebar-link";
 
 type NavLink = { href: string; label: string };
 
@@ -43,12 +43,7 @@ function Group({ heading, links }: { heading: string; links: NavLink[] }) {
       <ul>
         {links.map((l) => (
           <li key={l.href}>
-            <Link
-              href={l.href}
-              className="block px-3 py-1.5 text-sm rounded-md hover:bg-card transition"
-            >
-              {l.label}
-            </Link>
+            <SidebarLink href={l.href}>{l.label}</SidebarLink>
           </li>
         ))}
       </ul>
@@ -67,12 +62,9 @@ export function Sidebar() {
       </div>
 
       <nav className="flex-1 px-2 py-4 overflow-y-auto">
-        <Link
-          href="/admin"
-          className="block px-3 py-1.5 text-sm font-medium rounded-md hover:bg-card mb-4"
-        >
-          Dashboard
-        </Link>
+        <div className="mb-4">
+          <SidebarLink href="/admin">Dashboard</SidebarLink>
+        </div>
         <Group heading="Settings" links={SETTINGS} />
         <Group heading="Content" links={CONTENT} />
         <Group heading="About" links={ABOUT} />

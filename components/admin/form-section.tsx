@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SubmitButton } from "./submit-button";
 
 type FormSectionProps = {
   title: string;
@@ -38,9 +39,7 @@ export function FormSection({
       <div className="space-y-4">{children}</div>
 
       <div className="mt-6 flex items-center gap-3">
-        <button type="submit" className="rounded-full bg-accent-purple px-5 py-2 text-sm font-medium hover:opacity-90">
-          {submitLabel}
-        </button>
+        <SubmitButton label={submitLabel} />
         {backHref && (
           <Link href={backHref} className="text-sm text-muted-foreground hover:text-foreground">
             Cancel

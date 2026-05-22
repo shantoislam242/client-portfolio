@@ -20,6 +20,7 @@ export default async function ProfilePage() {
           <TextField name="ctaButtonLabel" label="Sidebar CTA label" required defaultValue={s.ctaButtonLabel} error={err("ctaButtonLabel")} />
           <TextField name="ctaButtonLink" label="Sidebar CTA link" required defaultValue={s.ctaButtonLink} error={err("ctaButtonLink")} />
           <UrlField name="resumeUrl" label="Resume URL" defaultValue={s.resumeUrl} error={err("resumeUrl")} />
+          <input type="hidden" name="resumePublicId" value={s.resumePublicId ?? ""} />
         </>
       )}
     </SettingsForm>

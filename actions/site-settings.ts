@@ -57,7 +57,10 @@ export async function updateProfile(_p: SettingsState, fd: FormData) {
   return applyUpdate(
     ProfileSchema,
     fd,
-    [{ urlField: "portraitUrl", publicIdField: "portraitPublicId" }],
+    [
+      { urlField: "portraitUrl", publicIdField: "portraitPublicId" },
+      { urlField: "resumeUrl", publicIdField: "resumePublicId" },
+    ],
     "/admin/site-settings/profile",
   );
 }
