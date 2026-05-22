@@ -36,6 +36,7 @@ export default async function DashboardPage() {
     clientLogos,
     projects,
     blogPosts,
+    contactSubmissions,
   ] = await Promise.all([
     prisma.navItem.count(),
     prisma.socialLink.count(),
@@ -48,6 +49,7 @@ export default async function DashboardPage() {
     prisma.clientLogo.count(),
     prisma.project.count(),
     prisma.blogPost.count(),
+    prisma.contactSubmission.count(),
   ]);
 
   return (
@@ -93,6 +95,15 @@ export default async function DashboardPage() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           <Card label="Nav items" count={navItems} href="/admin/nav-items" />
           <Card label="Social links" count={socials} href="/admin/social-links" />
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-sm uppercase tracking-wider text-muted-foreground mb-3">
+          Messages
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          <Card label="Inbox" count={contactSubmissions} href="/admin/contact-submissions" />
         </div>
       </section>
 

@@ -65,6 +65,9 @@ export function Sidebar() {
         <div className="mb-4">
           <SidebarLink href="/admin">Dashboard</SidebarLink>
         </div>
+        <div className="mb-4">
+          <SidebarLink href="/admin/contact-submissions">Inbox</SidebarLink>
+        </div>
         <Group heading="Settings" links={SETTINGS} />
         <Group heading="Content" links={CONTENT} />
         <Group heading="About" links={ABOUT} />
