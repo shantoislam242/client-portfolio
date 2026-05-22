@@ -1,7 +1,7 @@
 # Portfolio Admin UI — Phase 2A Design Spec
 
 **Date:** 2026-05-21
-**Status:** Draft — awaiting user review
+**Status:** Implemented (2026-05-22)
 **Scope:** Phase 2A of the 4-phase backend buildout. Builds on [Phase 1 foundation](./2026-05-20-portfolio-backend-foundation-design.md). Phase 2B (Project + Blog + TipTap + drag-reorder) is a separate spec.
 **Predecessor:** Phase 1 (foundation — schema, auth primitives, Cloudinary helpers, `/admin/*` gate)
 **Successor:** Phase 2B (advanced admin: Project/Blog CRUD, TipTap, drag-reorder)
