@@ -4,6 +4,6 @@ export const metadata = {
   title: "Projects — Arifujjaman",
 };
 
-export default function ProjectsPage() {
-  return <ProjectsGrid />;
+export default function ProjectsListPage() {
+  return <ProjectsGrid mode="page" />;
 }

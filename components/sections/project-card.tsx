@@ -4,12 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { cardGlow, cardImageZoom, cardLift } from "@/lib/motion";
-import type { Project } from "@/lib/data";
+import { cldUrl } from "@/lib/cloudinary/delivery";
+import type { Project } from "@prisma/client";
 
 type Props = { project: Project };
 
 export function ProjectCard({ project }: Props) {
   const reduce = useReducedMotion();
+  const imageUrl = project.cardImageUrl ?? project.coverImageUrl;
 
   return (
     <motion.div
@@ -38,7 +40,7 @@ export function ProjectCard({ project }: Props) {
             variants={reduce ? undefined : cardImageZoom}
           >
             <Image
-              src={project.image}
+              src={cldUrl(imageUrl)}
               alt={project.title}
               fill
               sizes="(min-width: 768px) 350px, 100vw"
@@ -52,7 +54,7 @@ export function ProjectCard({ project }: Props) {
             {project.title}
           </h3>
           <p className="mt-1 font-poppins text-sm text-text-secondary">
-            {project.subtitle}
+            {project.shortLabel}
           </p>
         </div>
       </Link>

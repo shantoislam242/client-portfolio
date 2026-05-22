@@ -10,7 +10,7 @@ export default function HomePage() {
     <>
       <Hero />
       <CompaniesStrip />
-      <ProjectsGrid limit={4} />
+      <ProjectsGrid mode="home" />
       <ToolsGrid />
       <Testimonials />
       <BlogGrid mode="home" />
