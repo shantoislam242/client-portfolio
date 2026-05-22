@@ -17,6 +17,7 @@ const SETTINGS: NavLink[] = [
 ];
 
 const CONTENT: NavLink[] = [
+  { href: "/admin/projects", label: "Projects" },
   { href: "/admin/tools", label: "Tools" },
   { href: "/admin/testimonials", label: "Testimonials" },
   { href: "/admin/faqs", label: "FAQs" },
