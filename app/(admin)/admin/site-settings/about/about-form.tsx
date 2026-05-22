@@ -3,8 +3,8 @@ import { useActionState, useEffect } from "react";
 import { toast } from "sonner";
 import { updateAbout, type SettingsState } from "@/actions/site-settings";
 import { TextField } from "@/components/admin/field/text-field";
-import { TextAreaField } from "@/components/admin/field/text-area-field";
 import { SubmitButton } from "@/components/admin/submit-button";
+import { RichTextEditor } from "@/components/admin/rich-text-editor/editor";
 
 type AboutFormProps = {
   initial: {
@@ -33,7 +33,14 @@ export function AboutForm({ initial }: AboutFormProps) {
       </header>
       <div className="max-w-2xl space-y-4">
         <TextField name="aboutPageTitle" label="About page title" required defaultValue={initial.aboutPageTitle} error={err("aboutPageTitle")} />
-        <TextAreaField name="aboutIntroContent" label="About intro (HTML — TipTap in 2B)" rows={10} help="Raw HTML for now; rich editor lands in Phase 2B." defaultValue={initial.aboutIntroContent} error={err("aboutIntroContent")} />
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-1">About intro</label>
+          <RichTextEditor
+            name="aboutIntroContent"
+            initialHtml={initial.aboutIntroContent ?? ""}
+            placeholder="Write your About-page intro…"
+          />
+        </div>
         <TextField name="experienceHeading" label="Experience section heading" required defaultValue={initial.experienceHeading} error={err("experienceHeading")} />
         <TextField name="educationHeading" label="Education section heading" required defaultValue={initial.educationHeading} error={err("educationHeading")} />
         <TextField name="certificationHeading" label="Certification section heading" required defaultValue={initial.certificationHeading} error={err("certificationHeading")} />
