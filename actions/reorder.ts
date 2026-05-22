@@ -13,7 +13,8 @@ type TableKey =
   | "experience"
   | "education"
   | "certification"
-  | "blogPost";
+  | "blogPost"
+  | "project";
 
 async function applyReorder(table: TableKey, ids: string[], path: string) {
   await requireAdmin();
@@ -66,4 +67,8 @@ export async function reorderCertifications(ids: string[]) {
 
 export async function reorderBlogPosts(ids: string[]) {
   await applyReorder("blogPost", ids, "/admin/blog-posts");
+}
+
+export async function reorderProjects(ids: string[]) {
+  await applyReorder("project", ids, "/admin/projects");
 }
