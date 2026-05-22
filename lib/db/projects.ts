@@ -35,7 +35,7 @@ export const getProjectBySlug = cache((slug: string) =>
 
 export const getAvailableRelatedProjects = cache((excludeId: string) =>
   prisma.project.findMany({
-    where: { id: { not: excludeId } },
+    where: { id: { not: excludeId }, published: true },
     select: { id: true, title: true, slug: true, coverImageUrl: true },
     orderBy: [{ order: "asc" }, { createdAt: "desc" }],
   }),
