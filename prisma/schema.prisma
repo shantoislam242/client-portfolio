@@ -231,6 +231,8 @@ model BlogPost {
   published Boolean @default(false)
   featured  Boolean @default(false)
 
+  order Int @default(0)
+
   metaTitle       String?
   metaDescription String?
 
@@ -241,6 +243,7 @@ model BlogPost {
   publishedAt DateTime?
 
   @@index([published, publishedAt])
+  @@index([order])
 }
 
 // ─────────────────────────────────────────
