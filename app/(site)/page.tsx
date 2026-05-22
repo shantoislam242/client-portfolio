@@ -13,7 +13,7 @@ export default function HomePage() {
       <ProjectsGrid limit={4} />
       <ToolsGrid />
       <Testimonials />
-      <BlogGrid limit={4} />
+      <BlogGrid mode="home" />
     </>
   );
 }

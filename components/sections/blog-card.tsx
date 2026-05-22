@@ -4,12 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { cardGlow, cardImageZoom, cardLift } from "@/lib/motion";
-import type { BlogPost } from "@/lib/data";
+import type { BlogPost } from "@prisma/client";
+import { cldUrl } from "@/lib/cloudinary/delivery";
 
-type Props = { post: BlogPost };
+type BlogCardProps = { post: BlogPost };
 
-export function BlogCard({ post }: Props) {
+export function BlogCard({ post }: BlogCardProps) {
   const reduce = useReducedMotion();
+
+  const dateStr = post.publishedAt
+    ? new Intl.DateTimeFormat("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      }).format(post.publishedAt)
+    : "";
 
   return (
     <motion.div
@@ -36,7 +45,7 @@ export function BlogCard({ post }: Props) {
             variants={reduce ? undefined : cardImageZoom}
           >
             <Image
-              src={post.image}
+              src={cldUrl(post.coverImageUrl)}
               alt={post.title}
               fill
               sizes="(min-width: 768px) 350px, 100vw"
@@ -46,7 +55,7 @@ export function BlogCard({ post }: Props) {
         </div>
 
         <div className="relative p-5">
-          <p className="font-inter text-xs text-text-muted">{post.date}</p>
+          <p className="font-inter text-xs text-text-muted">{dateStr}</p>
           <h3 className="mt-2 font-outfit font-bold text-lg text-text-primary leading-snug">
             {post.title}
           </h3>
