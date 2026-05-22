@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { checkbox, intField, optionalText, optionalUrl } from "./_helpers";
+import { checkbox, intField, optionalUrl } from "./_helpers";
 
 export const ClientLogoSchema = z.object({
   name: z.string().trim().min(1).max(100),

@@ -55,7 +55,7 @@ export function ImageUploader({
     let signed;
     try {
       signed = await signCloudinaryUpload(folder);
-    } catch (err) {
+    } catch {
       setState((s) => ({ ...s, status: "error", error: "Could not get upload signature" }));
       return;
     }
