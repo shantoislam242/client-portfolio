@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Outfit, Poppins, Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { PageShell } from "@/components/layout/page-shell";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -45,7 +44,7 @@ export default function RootLayout({
     >
       <body className="font-poppins bg-bg-primary text-text-primary antialiased">
         <TooltipProvider delayDuration={150}>
-          <PageShell>{children}</PageShell>
+          {children}
           <Toaster theme="dark" position="bottom-center" />
         </TooltipProvider>
       </body>
