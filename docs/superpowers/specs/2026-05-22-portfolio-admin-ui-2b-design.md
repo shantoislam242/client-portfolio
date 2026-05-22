@@ -1,7 +1,7 @@
 # Portfolio Admin UI — Phase 2B Design Spec
 
 **Date:** 2026-05-22
-**Status:** Draft — awaiting user review
+**Status:** Implemented (2026-05-22)
 **Scope:** Phase 2B of the 4-phase backend buildout. Builds on [Phase 2A admin foundation](./2026-05-21-portfolio-admin-ui-2a-design.md). Phase 2C (Project CRUD) is a separate spec; Phase 3 (public-site rewire) happens after 2C.
 **Predecessor:** Phase 2A (login + dashboard + 10 simple CRUDs + ContactSubmissions inbox)
 **Successor:** Phase 2C (Project CRUD with nested sections + gallery + related projects)
