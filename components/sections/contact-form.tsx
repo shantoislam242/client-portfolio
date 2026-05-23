@@ -1,10 +1,15 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/motion/fade-in";
+import {
+  submitContactForm,
+  type ContactFormState,
+} from "@/actions/contact-form";
 
 type ContactFormProps = {
   nameLabel: string;
@@ -14,6 +19,21 @@ type ContactFormProps = {
   successMessage: string;
 };
 
+const initialState: ContactFormState = { ok: false };
+
+function SubmitButton({ label }: { label: string }) {
+  const { pending } = useFormStatus();
+  return (
+    <Button
+      type="submit"
+      disabled={pending}
+      className="w-full rounded-full bg-accent hover:bg-accent-hover text-white py-3 h-auto"
+    >
+      {pending ? "Sending..." : label}
+    </Button>
+  );
+}
+
 export function ContactForm({
   nameLabel,
   emailLabel,
@@ -21,29 +41,47 @@ export function ContactForm({
   submitLabel,
   successMessage,
 }: ContactFormProps) {
-  const [submitted, setSubmitted] = useState(false);
+  const [state, formAction] = useActionState(submitContactForm, initialState);
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
-
-  if (submitted) {
+  if (state.ok) {
     return (
       <FadeIn>
         <p className="mt-10 font-poppins text-base text-text-secondary">
-          {successMessage}
+          {state.message ?? successMessage}
         </p>
       </FadeIn>
     );
   }
 
+  const topError = state.message && !state.ok ? state.message : null;
+  const fe = state.fieldErrors ?? {};
+
   return (
     <FadeIn delay={0.1}>
       <form
-        onSubmit={onSubmit}
+        action={formAction}
         className="mt-10 rounded-2xl border border-border-subtle bg-bg-card p-6 md:p-8 space-y-5"
       >
+        {/* Honeypot — visible to bots, hidden from humans + screen readers */}
+        <input
+          type="text"
+          name="_gotcha"
+          tabIndex={-1}
+          autoComplete="off"
+          className="sr-only"
+          aria-hidden="true"
+          defaultValue=""
+        />
+
+        {topError && (
+          <p
+            role="alert"
+            className="font-poppins text-sm text-red-400"
+          >
+            {topError}
+          </p>
+        )}
+
         <div>
           <label
             htmlFor="contact-name"
@@ -57,8 +95,18 @@ export function ContactForm({
             type="text"
             required
             placeholder="Your Name"
+            aria-invalid={Boolean(fe.name)}
+            aria-describedby={fe.name ? "contact-name-error" : undefined}
             className="bg-bg-card-hover border-border-subtle"
           />
+          {fe.name && (
+            <p
+              id="contact-name-error"
+              className="mt-1 font-poppins text-xs text-red-400"
+            >
+              {fe.name}
+            </p>
+          )}
         </div>
 
         <div>
@@ -74,8 +122,18 @@ export function ContactForm({
             type="email"
             required
             placeholder="Your@email.com"
+            aria-invalid={Boolean(fe.email)}
+            aria-describedby={fe.email ? "contact-email-error" : undefined}
             className="bg-bg-card-hover border-border-subtle"
           />
+          {fe.email && (
+            <p
+              id="contact-email-error"
+              className="mt-1 font-poppins text-xs text-red-400"
+            >
+              {fe.email}
+            </p>
+          )}
         </div>
 
         <div>
@@ -91,16 +149,21 @@ export function ContactForm({
             required
             rows={4}
             placeholder="Your Message"
+            aria-invalid={Boolean(fe.message)}
+            aria-describedby={fe.message ? "contact-message-error" : undefined}
             className="bg-bg-card-hover border-border-subtle resize-none"
           />
+          {fe.message && (
+            <p
+              id="contact-message-error"
+              className="mt-1 font-poppins text-xs text-red-400"
+            >
+              {fe.message}
+            </p>
+          )}
         </div>
 
-        <Button
-          type="submit"
-          className="w-full rounded-full bg-accent hover:bg-accent-hover text-white py-3 h-auto"
-        >
-          {submitLabel}
-        </Button>
+        <SubmitButton label={submitLabel} />
       </form>
     </FadeIn>
   );
