@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db/client";
 import { ProjectDetail } from "@/components/sections/project-detail";
+import { CollaborateCTA } from "@/components/sections/collaborate-cta";
 
 type Params = Promise<{ slug: string }>;
 
@@ -34,7 +35,12 @@ export default async function ProjectSlugPage({
   });
 
   if (!project || !project.published) notFound();
-  return <ProjectDetail project={project} />;
+  return (
+    <>
+      <ProjectDetail project={project} />
+      <CollaborateCTA />
+    </>
+  );
 }
 
 export async function generateMetadata({ params }: { params: Params }) {

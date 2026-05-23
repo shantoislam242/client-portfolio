@@ -3,7 +3,6 @@ import { Sidebar } from "@/components/layout/sidebar";
 import { FloatingNav } from "@/components/layout/floating-nav";
 import { Footer } from "@/components/layout/footer";
 import { FAQ } from "@/components/sections/faq";
-import { CollaborateCTA } from "@/components/sections/collaborate-cta";
 import { PageTransition } from "@/components/motion/page-transition";
 
 export function PageShell({ children }: { children: ReactNode }) {
@@ -24,7 +23,6 @@ export function PageShell({ children }: { children: ReactNode }) {
           <main id="main" className="min-w-0 flex-1 lg:max-w-content">
             <PageTransition>{children}</PageTransition>
             <FAQ />
-            <CollaborateCTA />
           </main>
         </div>
         <Footer />
