@@ -1,4 +1,4 @@
-import DOMPurify from "isomorphic-dompurify";
+import sanitizeHtmlLib from "sanitize-html";
 
 const ALLOWED_TAGS = [
   "p", "br", "strong", "em", "s", "code", "pre",
@@ -8,13 +8,16 @@ const ALLOWED_TAGS = [
   "a", "img",
 ];
 
-const ALLOWED_ATTR = ["href", "target", "rel", "src", "alt", "class"];
+const ALLOWED_ATTR: Record<string, string[]> = {
+  "*": ["class"],
+  a: ["href", "target", "rel"],
+  img: ["src", "alt"],
+};
 
 export function sanitizeHtml(html: string | null | undefined): string {
   if (!html) return "";
-  return DOMPurify.sanitize(html, {
-    ALLOWED_TAGS,
-    ALLOWED_ATTR,
-    ADD_ATTR: ["target"],
+  return sanitizeHtmlLib(html, {
+    allowedTags: ALLOWED_TAGS,
+    allowedAttributes: ALLOWED_ATTR,
   });
 }
