@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const contactFormSchema = z.object({
+export const ContactFormSchema = z.object({
   name: z
     .string()
     .trim()
@@ -18,4 +18,4 @@ export const contactFormSchema = z.object({
     .max(5000, "Message is too long"),
 });
 
-export type ContactFormInput = z.infer<typeof contactFormSchema>;
+export type ContactFormInput = z.infer<typeof ContactFormSchema>;
