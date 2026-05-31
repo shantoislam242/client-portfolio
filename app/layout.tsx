@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Poppins, Inter } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
@@ -43,6 +44,12 @@ export default function RootLayout({
       className={`${outfit.variable} ${poppins.variable} ${inter.variable}`}
     >
       <body className="font-poppins bg-bg-primary text-text-primary antialiased">
+        <NextTopLoader
+          color="#8b5cf6"
+          height={2}
+          showSpinner={false}
+          shadow="0 0 8px #8b5cf6"
+        />
         <TooltipProvider delayDuration={150}>
           {children}
           <Toaster theme="dark" position="bottom-center" />
