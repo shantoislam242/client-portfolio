@@ -55,7 +55,7 @@ function Group({ heading, links }: { heading: string; links: NavLink[] }) {
 
 export function Sidebar() {
   return (
-    <aside className="w-64 border-r border-border bg-background flex flex-col min-h-screen">
+    <aside className="w-64 shrink-0 border-r border-border bg-background flex flex-col sticky top-0 h-screen">
       <div className="px-4 py-5 border-b border-border">
         <div className="text-sm font-semibold">Portfolio Admin</div>
         <div className="text-xs text-muted-foreground truncate">
